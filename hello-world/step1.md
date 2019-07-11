@@ -4,4 +4,4 @@ This is your first step.
 
 This is an _example_ of wutsta a scenario and running a **command**
 
-`echo 'Hello World'`{{execute}}
+`npm run hello-data`{{execute}}
