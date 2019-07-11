@@ -29,7 +29,6 @@
           {"file": "hello-data-corectl.js", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},      
           {"file": "testscript.qvs", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"}, 
           {"file": "corectl.yml", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"}
- 
       ]
   }
   },
