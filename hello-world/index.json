@@ -22,7 +22,9 @@
     "assets": {
       "host01": [
           {"file": "docker-compose.yml", "target": "/usr/local/bin/", "chmod": "+x"},
-          {"file": "docker-compose.yml", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"}
+          {"file": "docker-compose.yml", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},
+          {"file": "movies.csv", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},
+          {"file": "package.json", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"}
       ]
   }
   },
