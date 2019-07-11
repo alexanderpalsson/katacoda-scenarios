@@ -6,7 +6,8 @@
   "details": {
     "steps": [{
       "title": "Step 1 - Run Command",
-      "text": "step1.md"
+      "text": "step1.md",
+      "code": "setup.sh"
     }],
     "intro": {
       "text": "intro.md",
@@ -15,6 +16,9 @@
     "finish": {
       "text": "finish.md"
     },
+    "files": [
+      "hello-data.js"
+  ],
     "assets": {
       "host01": [
           {"file": "docker-compose.yml", "target": "/usr/local/bin/", "chmod": "+x"},
@@ -23,10 +27,12 @@
   }
   },
   "environment": {
-    "uilayout": "terminal",
-    "uimessage1": "\u001b[32mYour Interactive Bash Terminal.\r\nStart Kubernetes using `launch.sh`\u001b[m\r\n"
+    "hidefinish": true,
+    "uilayout": "editor-terminal",
+    "uisettings": "javascript",
+    "uieditorpath": "/home/scrapbook/tutorial/example"
   },
   "backend": {
-    "imageid": "ubuntu"
+    "imageid": "node"
   }
 }
