@@ -25,7 +25,13 @@
           {"file": "hello-engine.js", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},
           {"file": "hello-data.js", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},
           {"file": "movies.csv", "target": "/home/scrapbook/tutorial/example/data", "chmod": "+x"},
-          {"file": "package.json", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"}
+          {"file": "hello-corectl.json", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},
+          {"file": "hello-data-corectl.js", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},      
+          {"file": "testscript.qvs", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"}, 
+          {"file": "corectl.yml", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},
+          {"file": "corectl.exe", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"}   
+   
+
       ]
   }
   },
