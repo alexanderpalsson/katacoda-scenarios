@@ -14,20 +14,18 @@
     },
     "finish": {
       "text": "finish.md"
-    }
+    },
+    "assets": {
+      "host01": [
+          {"file": "docker-compose.yml", "target": "/usr/local/bin/", "chmod": "+x"},
+          {"file": "docker-compose.yml", "target": "/home/scrapbook/", "chmod": "+x"}
+      ]
+  }
   },
   "environment": {
     "uilayout": "terminal",
     "uimessage1": "\u001b[32mYour Interactive Bash Terminal.\r\nStart Kubernetes using `launch.sh`\u001b[m\r\n"
   },
-  "assets": {
-  "host01": [
-    {
-      "file": "config.yml",
-      "target": "~/"
-    }
-  ]
-},
   "backend": {
     "imageid": "ubuntu"
   }
