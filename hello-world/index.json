@@ -28,7 +28,8 @@
           {"file": "hello-corectl.json", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},
           {"file": "hello-data-corectl.js", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},      
           {"file": "testscript.qvs", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"}, 
-          {"file": "corectl.yml", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"}
+          {"file": "corectl.yml", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},
+          {"file": "corectl.exe", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"}   
       ]
   }
   },
