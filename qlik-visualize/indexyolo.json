@@ -45,7 +45,9 @@
       "hidefinish": true,
       "uilayout": "editor-terminal",
       "uisettings": "javascript",
-      "uieditorpath": "/home/scrapbook/tutorial/example"
+      "uieditorpath": "/home/scrapbook/tutorial/example",
+      "showdashboard": true,
+      "dashboards": [{"name": "Tab Name", "port": 80}, {"name": "Tab Name", "port": 8080}]
     },
     "backend": {
       "imageid": "ubuntu"
