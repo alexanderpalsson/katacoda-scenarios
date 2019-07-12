@@ -22,11 +22,23 @@
     "assets": {
       "host01": [
    
-          {"file": "docker-compose.yml", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},
-          {"file": "package.json", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},
-          {"file": "linechart.js", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},
-          {"file": "index.html", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},
-          {"file": "movies.csv", "target": "/home/scrapbook/tutorial/example/data", "chmod": "+x"}
+         
+        {"file": "docker-compose.yml", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},
+        {"file": "package.json", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},
+        {"file": "app.css", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},
+        {"file": "app.html", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},
+        {"file": "app.js", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},
+        {"file": "linechart.js", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},
+        {"file": "index.html", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},
+        {"file": "scatterplot.js", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},      
+        {"file": "webpack.config.js", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"}, 
+        {"file": "github-social-logo.svg", "target": "/home/scrapbook/tutorial/example/resources", "chmod": "+x"},
+        {"file": "hello-viz.png", "target": "/home/scrapbook/tutorial/example/resources", "chmod": "+x"},
+        {"file": "LUI-icons.woff", "target": "/home/scrapbook/tutorial/example/resources", "chmod": "+x"},
+        {"file": "Quicksand.LICENSE", "target": "/home/scrapbook/tutorial/example/resources", "chmod": "+x"},
+        {"file": "Quicksand-Regular.otf", "target": "/home/scrapbook/tutorial/example/resources", "chmod": "+x"},
+        {"file": "Quicksand-Light.otf", "target": "/home/scrapbook/tutorial/example/resources", "chmod": "+x"},
+        {"file": "movies.csv", "target": "/home/scrapbook/tutorial/example/data", "chmod": "+x"}
       ]
   }
   },
