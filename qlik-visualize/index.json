@@ -46,6 +46,7 @@
     "environmentsprotocol": "http"
   },
   "backend": {
-    "imageid": "ubuntu"
+    "imageid": "ubuntu",
+    "environmentsprotocol": "http"
   }
 }
