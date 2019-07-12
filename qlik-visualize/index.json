@@ -27,7 +27,10 @@
         {"file": "app.css", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},
         {"file": "app.html", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},
         {"file": "app.js", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},
-        {"file": "linechart.js", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"}
+        {"file": "linechart.js", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},
+        {"file": "index.html", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},
+        {"file": "scatterplot.js", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"}
+   
       
       ]
   }
