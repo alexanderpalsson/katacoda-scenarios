@@ -1,0 +1,44 @@
+{
+  "title": "Qlik-visualize",
+  "description": "test qlik-vis",
+  "difficulty": "beginner",
+  "time": "2 minutes",
+  "details": {
+    "steps": [{
+      "title": "Step 1 - Run Command",
+      "text": "step1.md",
+      "code": "setup.sh"
+    }],
+    "intro": {
+      "text": "intro.md",
+      "credits": ""
+    },
+    "finish": {
+      "text": "finish.md"
+    },
+    "files": [
+      "hello-data.js"
+  ],
+    "assets": {
+      "host01": [
+          {"file": "docker-compose.yml", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},
+          {"file": "hello-engine.js", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},
+          {"file": "hello-data.js", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},
+          {"file": "movies.csv", "target": "/home/scrapbook/tutorial/example/data", "chmod": "+x"},
+          {"file": "hello-corectl.json", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},
+          {"file": "package.json", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},      
+          {"file": "testscript.qvs", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"}, 
+          {"file": "corectl.yml", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"}
+      ]
+  }
+  },
+  "environment": {
+    "hidefinish": true,
+    "uilayout": "editor-terminal",
+    "uisettings": "javascript",
+    "uieditorpath": "/home/scrapbook/tutorial/example"
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}
