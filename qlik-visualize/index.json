@@ -30,8 +30,8 @@
         {"file": "linechart.js", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},
         {"file": "index.html", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},
         {"file": "scatterplot.js", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},
-        {"file": "webpack.config.js", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"}, 
-        {"file": "github-social-logo.svg", "target": "/home/scrapbook/tutorial/example/resources", "chmod": "+x"}
+        {"file": "webpack.config.js", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"}
+    
         
       
       ]
