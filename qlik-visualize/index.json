@@ -37,7 +37,7 @@
           {"file": "Quicksand.LICENSE", "target": "/home/scrapbook/tutorial/example/resources", "chmod": "+x"},
           {"file": "Quicksand-Regular.otf", "target": "/home/scrapbook/tutorial/example/resources", "chmod": "+x"},
           {"file": "Quicksand-Light.otf", "target": "/home/scrapbook/tutorial/example/resources", "chmod": "+x"},
-          {"file": "movies.cvs", "target": "/home/scrapbook/tutorial/example/data", "chmod": "+x"}
+          {"file": "movies.csv", "target": "/home/scrapbook/tutorial/example/data", "chmod": "+x"}
       ]
   }
   },
