@@ -32,7 +32,8 @@
         {"file": "scatterplot.js", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},      
         {"file": "webpack.config.js", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"}, 
         {"file": "LUI-icons.woff", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},
-        {"file": "Quicksand.LICENSE", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"}
+        {"file": "Quicksand.LICENSE", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},
+        {"file": "movies.csv", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"}
       ]
   }
   },
