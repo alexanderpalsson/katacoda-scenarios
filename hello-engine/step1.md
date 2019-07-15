@@ -1,58 +1,23 @@
-This is your first step.
+#### Objectives
 
-## Task
+- Start a Qlik Associative Engine session.
 
-g
-This is an _example_ of wutsta a scenario and running a **command**
+- Communicate with the Engine
+
+## Itroduction
+
+This tutorial will take you through the first of the three main concepts of using Qlik Core:
+
+1. Connect to Qlik Associative Engine
+(2. Load and manage data)
+(3. Visualize data)
 
 ![Katacoda Logo](hello-engine/assets/Qlik.png)
 
+
+The setup uses [Node.js]https://www.npmjs.com/get-npm and [Docker](https://www.docker.com), we suggest you read more about them after the tutorial
+
+Before you can use the Qlik engine you need to accept the EULA by defining the ACCEPT_EULA environment variable. 
 `ACCEPT_EULA=yes docker-compose up -d`{{execute}}
-
-Lets Start: First make a project folder!
-
-`mkdir hello-engine; cd hello-engine`{{execute}}
-
-Lets make a javascript file that will run the connection set up
-
-`touch app.js`{{execute}}
-
-`app.js`{{open}}
-
-
-<pre class="file" data-filename="app.js" data-target="prepend">const WebSocket = require('ws');
-const enigma = require('enigma.js');
-const schema = require('enigma.js/schemas/3.2.json');
-
-</pre>
-
-<pre class="file" data-filename="app.js" data-target="append">(async () => {
-  try {
-    console.log('Creating and opening session.');
-    const session = enigma.create({
-      schema,
-      url: 'ws://localhost:19076/app',
-      createSocket: url => new WebSocket(url),
-    });
-</pre>
-
-<pre class="file" data-filename="app.js" data-target="append">console.log("Finishing...")
-    const global = await session.open();
-</pre>
-
-<pre class="file" data-filename="app.js" data-target="append"> 
-const version = await global.engineVersion();
-    console.log(`Engine version retrieved: ${version.qComponentVersion}`);
-</pre>
-<pre class="file" data-filename="app.js" data-target="append"> 
- await session.close();
-    console.log('Session closed.');
-  } catch (err) {
-    console.log('Whoops! An error occurred.', err);
-    process.exit(1);
-  }
-})();
-</pre>
-
-
-`npm run start`{{execute}}
+ 
+ 

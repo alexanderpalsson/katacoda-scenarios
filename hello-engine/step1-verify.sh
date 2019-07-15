@@ -1,1 +1,1 @@
-echo "done"
+(( $(docker ps | wc -l) >= 1 )) && echo \"done\"

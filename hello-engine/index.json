@@ -1,6 +1,10 @@
 {
   "title": "Connect to Engine",
   "description": "Learn how to set up a websocket connection to Qlik Associative Engine",
+  "difficulty": "beginner",
+  "time": "2 minutes",
+  
+  
   "details": {
    
     "steps": [
@@ -14,10 +18,6 @@
       {
         "title": "Step 2",
         "text": "step2.md"
-      },
-      {
-        "title": "Step 3",
-        "text": "step3.md"
       }
     ],
     "intro": {
