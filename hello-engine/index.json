@@ -1,6 +1,6 @@
 {
-  "title": "hello-engine",
-  "description": "Learn how to connect to Qlik Associative Engine",
+  "title": "Connect to Engine",
+  "description": "Learn how to set up a websocket connection to Qlik Associative Engine",
   "details": {
    
     "steps": [
