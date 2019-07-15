@@ -21,7 +21,7 @@ show_progress()
   done
   printf "    \b\b\b\b"
   echo ""
-  echo "Configured"
+  echo "Setup Finished"
 }
 
 show_progress

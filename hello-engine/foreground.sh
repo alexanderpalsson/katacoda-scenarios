@@ -1,1 +1,1 @@
-sleep 1; wait.sh
+sleep 1; wait.sh; cd ../home/scrapbook/tutorial/example/
