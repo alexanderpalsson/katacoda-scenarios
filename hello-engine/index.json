@@ -7,6 +7,8 @@
       {
         "title": "Prerequisites",
         "text": "step1.md",
+        "courseData": "background.sh",
+        "code": "foreground.sh",
         "verify": "step1-verify.sh"
       },
       {
