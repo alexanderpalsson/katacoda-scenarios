@@ -43,10 +43,9 @@
     "uieditorpath": "/home/scrapbook/tutorial/example",
     "showdashboard": true,
     "dashboards": [{"name": "Display 80", "port": 80}, {"name": "Display 8080", "port": 8080}],
-    "environmentsprotocol": "http"
+    "protocol": "http"
   },
   "backend": {
-    "imageid": "ubuntu",
-    "environmentsprotocol": "http"
+    "imageid": "ubuntu"
   }
 }
