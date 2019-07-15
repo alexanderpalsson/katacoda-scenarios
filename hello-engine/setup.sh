@@ -1,1 +1,1 @@
-sleep 1; cd ../home/scrapbook/tutorial/example/; ACCEPT_EULA=yes docker-compose up -d; npm install; cd hello-engine; clear;
+sleep 1; cd ../home/scrapbook/tutorial/example/; npm install; cd ../home/scrapbook/tutorial/example/hello-engine/; clear;
