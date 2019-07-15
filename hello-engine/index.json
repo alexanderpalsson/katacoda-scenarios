@@ -7,7 +7,6 @@
       {
         "title": "Prerequisites",
         "text": "step1.md",
-        "courseData": "setup.sh",
         "verify": "step1-verify.sh"
       },
       {
@@ -29,7 +28,8 @@
       "host01": [
           {"file": "docker-compose.yml", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},
           {"file": "package.json", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},
-          {"file": "hello-engine.js", "target": "/home/scrapbook/tutorial/example/hello-engine", "chmod": "+x"}
+          {"file": "hello-engine.js", "target": "/home/scrapbook/tutorial/example/hello-engine", "chmod": "+x"},
+          {"file": "wait.sh", "target": "/usr/local/bin/", "chmod": "+x"}
       ]
   }
   },
