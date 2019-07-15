@@ -37,7 +37,7 @@
   "environment": {
     "uilayout": "editor-terminal",
     "uisettings": "javascript",
-    "uieditorpath": "/home/scrapbook/tutorial/example"
+    "uieditorpath": "/home/scrapbook/tutorial/example/hello-engine"
   },
   "backend": {
     "imageid": "ubuntu"

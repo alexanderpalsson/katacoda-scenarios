@@ -11,7 +11,7 @@ This is an _example_ of wutsta a scenario and running a **command**
 
 Lets Start: First make a project folder!
 
-`mkdir hello-engine; cd hello-eninge`{{execute}}
+`mkdir hello-engine; cd hello-engine`{{execute}}
 
 Lets make a javascript file that will run the connection set up
 
