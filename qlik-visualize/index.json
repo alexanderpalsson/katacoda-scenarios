@@ -42,7 +42,7 @@
     "uisettings": "javascript",
     "uieditorpath": "/home/scrapbook/tutorial/example",
     "showdashboard": true,
-    "dashboards": [{"name": "Display 80", "port": 80}, {"name": "Display 8080", "port": 8080, "environmentsprotocol": "http"}],
+    "dashboards": [{"name": "Display 80", "port": 80}, {"name": "Display 8080", "port": 8080}],
     "environmentsprotocol": "http"
   },
   "backend": {
