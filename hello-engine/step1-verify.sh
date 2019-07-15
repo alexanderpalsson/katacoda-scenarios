@@ -1,1 +1,1 @@
-[docker-compose up -d] && echo "done"
+echo "done"
