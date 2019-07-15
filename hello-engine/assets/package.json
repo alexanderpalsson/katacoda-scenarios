@@ -6,7 +6,7 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "hello-engine": "node hello-engine.js",
+    "hello-engine": "node hello-engine.js"
   },
   "dependencies": {
     "enigma.js": "2.4.0",
