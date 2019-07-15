@@ -42,7 +42,8 @@
     "uisettings": "javascript",
     "uieditorpath": "/home/scrapbook/tutorial/example",
     "showdashboard": true,
-    "dashboards": [{"name": "Display 80", "port": 80}, {"name": "Display 8080", "port": 8080}],
+    "dashboards": [{"name": "Display 80", "port": 80}, {"name": "Display 8080", "port": 8080}, {"name": "Placeholder", "href": "https://[[HOST_SUBDOMAIN]]-19076-[[KATACODA_HOST]].environments.katacoda.com"}],
+    
     "protocol": "http"
   },
   "backend": {
