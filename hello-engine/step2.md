@@ -1,17 +1,21 @@
 ## Let's make the  app!
 
-Open the file `app.js`{{open}}
+We have prepared a file for you open the file `app.js`{{open}} to check it out.
 
-First we need to set up some node imports to define what attributes our session will use. 
+### Require
+At the top file we see three require, theese includes nodejs modules into our project from remote files. If you are curious read more about [require].(https://nodejs.org/en/knowledge/getting-started/what-is-require/)
+![import](hello-engine/assets/imports.png) 
+### Async/Await
+In our case `async` might be unessecary since we will be running the engine on a localhost. But if you are running a engine against a remote host `async/await` will be necessary.  
 
-*psst*  If you wan't to know more check out [Node.js](https://www.npmjs.com/get-npm)
+## Enigma.js
+In this tutorial we will use enigma.js to cummunicate with engine. 
 
+To find the solutions look at the [enigma.js API documentation](https://github.com/qlik-oss/enigma.js/blob/master/docs/api.md#api-documentation).
 
-This example uses Enigma.js which is a javascript library to easier communicate with enige. Read the [Enigma API documentaion](https://github.com/qlik-oss/enigma.js/blob/master/docs/api.md#enigmacreateconfig). 
+To create a session you will have to use `enigma.create()`. Enigma create uses a configuration object. We to create a session against the QIX Engine at websocket URL `'ws://localhost:9076/app/engineData'` using the `enigma.js/schemas/3.2.json` schema(Look at the `const schema`).
 
-In the session we define which schema and websocker URL we want to use.
-
-<details> <summary>Create session solution</summary>
+<details> <summary>enigma.create() solution</summary>
 <p> 
 <pre class="file" data-target="clipboard"> enigma.create({ 
       schema,
