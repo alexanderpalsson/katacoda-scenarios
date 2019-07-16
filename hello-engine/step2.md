@@ -23,54 +23,60 @@ This example uses Enigma.js which is a javascript library to easier communicate 
 
 In the session we define which schema and websocker URL we want to use.
 
-<pre class="file" data-filename="app.js" data-target="append">
-// Setting up a session against localhost:19076
-(async () => {
-  try {
-    console.log('Creating and opening session.');
-    const session = enigma.create({
+
+ <details>
+<summary>I could use some help...</summary>
+<pre class="file" data-target="clipboard">
+<p>
+
+```javascript
       schema,
       url: 'ws://localhost:19076/app',
       createSocket: url => new WebSocket(url),
-    });
+```
+</p>
 </pre>
+</details>  
 
-To open the session we simply use the method 
+
+ <details>
+<summary>I could use some help...</summary>
+<p>
+
 ```javascript
- open()
- ```
-
-<pre class="file" data-filename="app.js" data-target="append">console.log("Finishing...")
-    const global = await session.open();
-</pre>
+      session.open();
+```
+</p>
+</details>  
 
 
-With a session intance 
+ <details>
+<summary>I could use some help...</summary>
+<p>
+
 ```javascript
-    global
- ```
+      global.engineVersion();
+```
+</p>
+</details>  
+
+ <details>
+<summary>I could use some help...</summary>
+<p>
+
+```javascript
+      session.close();
+```
+</p>
+</details>  
+ 
+
  We can now communicate with our enigne.
 
-<pre class="file" data-filename="app.js" data-target="append"> 
-const version = await global.engineVersion();
-    console.log(`Engine version retrieved: ${version.qComponentVersion}`);
-</pre>
-
-To close the session when we are done we simply:
-<pre class="file" data-filename="app.js" data-target="append"> 
- await session.close();
-    console.log('Session closed.');
-  } catch (err) {
-    console.log('Whoops! An error occurred.', err);
-    process.exit(1);
-  }
-})();
-</pre>
 
 
-To run the code we can either use the npm script:
+
+To run the code we can use the npm script:
 `npm run start`{{execute}}
 
-Or run the .js file with
 
-`node app.js`{{execute}}
