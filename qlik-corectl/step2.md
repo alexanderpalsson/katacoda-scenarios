@@ -1,85 +1,67 @@
+**Note:** coreCtl is installed in this katacoda enviroment if you want to run coreCtl locally on you machine see the [coreCtl documentation](https://github.com/qlik-oss/corectl)
 
-We have prepared a file for you **open the file:** `app.js`{{open}} to check it out. The code is not finish follow the five steps to complete to create and app that communicates with engine.
+Objectvies:
+* Create a coreCtl config file
+* Use basic coreCtl commands
+* Create a simple Qlik app
+* Load data into the app
+* Use object to structure data
 
-#### Require
-At the top file we see three require, theese includes nodejs modules into our project from remote files. If you are curious read more about [require].(https://nodejs.org/en/knowledge/getting-started/what-is-require/)
-![import](hello-engine/assets/Imports.png) 
-#### Async/Await
-In our case `async` might be unessecary since we will be running the engine on a localhost. But if you are running a engine against a remote host `async/await` will be necessary.  
+There are 4 prepared files:
+* `corectl.yml`{{open}} - This is the config file that you will creat
+* `testscript.qvs`{{open}} - A load script that will be used in *Step 3* to load data. 
+* `data/movie.cvs `{{open}} - The data that will be loaded. Contains information about 10 movies.
+* `corectl-object.json `{{open}} - This file contains a object, if you are new to Qlik you might want to learn more about [objects](http://help.qlik.com/en-US/sense-developer/June2019/SubSystems/Platform/Content/Sense_PlatformOverview/Concepts/GenericObject.htm).
 
-## Enigma.js
-In this tutorial we will use [enigma.js](https://github.com/qlik-oss/enigma.js) which is a library that helps you communicate with Qlik QIX Engine. You can use enigma.js to build your own browser-based analytics tools, back-end services, or command-line scripts.
+#### 1. CoreCtl build
+When you run the command: <br> `corectl build`{{execute}} <br> <br>
 
-To find all solutions in this tutorial look at the [enigma.js API documentation](https://github.com/qlik-oss/enigma.js/blob/master/docs/api.md#api-documentation).
+CoreCtl will look for file with the name ***corectl.yml*** in the current folder. The corectl.yml file is the configuration file of how corectl will run. <br> You can leave the file empty and then configure corectl using flags instead or run the file with configurations and then override them with flags. 
+<br>`corectl build -e "localhost:19076" -a "my app"`{{execute}} <br>
+Will run an corectl instance that looks for an engine on localhost:19076 and runs the against the app "my app"
+<br>
+Look a the specification of how to create the [**corectl config**](https://github.com/qlik-oss/corectl/blob/master/docs/corectl_config.md), here you will find the answers to this tutorial. 
 
-#### 1. Configure enigma.create()
-To create a session you will have to use `enigma.create()`.<br> 
-Enigma create uses a configuration object, create a configuration object with the: <br>**websocket URL**: `'ws://localhost:9076/app/engineData'` and the: <br> **schema**: `enigma.js/schemas/3.2.json` (Look at the  `const schema`).
+#### 2. Connect corectl to engine
 
-<details> <summary>enigma.create() solution</summary>
+Edit the `corectl.yml`{{open}} so that is connects to engine on the URL localhost:19076.
+
+<details> <summary>Show solution</summary>
 <p> 
-<pre class="file" data-target="clipboard"> enigma.create({ 
-      schema,
-      url: 'ws://localhost:19076/app',
-      createSocket: url => new WebSocket(url)
-  });
+<pre class="file" data-target="clipboard">engine: localhost:19076 # URL and port to running Qlik Associative Engine instance
 </pre>
 </p>
 </details>  
 <br>
 
+ Use `corectl build`{{execute}} to rebuild the application. 
+ <br>
+<br>
+ That will return `ERROR no app specified`.
+ This is because you need to run corectl against an app! <br>
 
-#### 2. Open a session
+ #### 3. Create your own app to run against
 
-After you have created a session object, open the session! 
-<details>
-<summary>Show solution</summary>
-<p>
-<pre class="file" data-target="clipboard">
-const global = await session.open();
+ Edit the `corectl.yml`{{open}} file to run corectl against an app. For example *testapp.qvf*. <br>
+Since we run are creating a new empty app we can name it to whatever we like. We could use an existing app by using the name of that app.
+ <details> <summary>Show solution</summary>
+ <p> 
+<pre class="file" data-target="clipboard">engine: localhost:19076 # URL and port to running Qlik Associative Engine instance
+app: /testapp.qvf   # App name that the tool should open a session against.
 </pre>
 </p>
-</details>  
+This could also be done using the -a flag:
 <br>
 
-#### 3. Retrieve the session version
-
-With an open session we can retieve the version of the session!
-
- <details>
-<summary>Show solution</summary>
-<p>
-<pre class="file" data-target="clipboard">
- const version = await global.engineVersion();
-</pre>
-</p>
+`corectl build -a "my app"`{{execute}}
 </details>  
+
+
+ #### 3. Show your apps
+
+Now you should have an up and running against an engine. <br>
+You can check your apps with: <br> <br>
+`corectl app ls`{{execute}}
 <br>
-
-
-#### 4. Close the session
-
-When were are done communicating with engine close the session!
-
- <details>
-<summary>Show sultion</summary>
-<pre class="file" data-target="clipboard">await session.close();</pre>
-</details>  
 <br>
-
-
-#### 5. Run the app
-
- We now have an application the will:
- 1. Create and open session against engine
- 2. Retrive the version of the engine
- 3. Write the engines version in the console window
- 4. Close the session
-
-
-
-   
-Run the code: <br>
-`npm run start`{{execute}}
-
-
+However this app is empty, in next step we will load data to the app.
