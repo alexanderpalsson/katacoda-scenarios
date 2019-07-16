@@ -12,7 +12,7 @@ const schema = require('enigma.js/schemas/3.2.json');
 
     const version = await // Todo retrieve engine version
 
-    console.log(`Engine version retrieved: ${version.qComponentVersion}`); // This will retrevie the version of the engine
+    console.log(`Engine version retrieved: ${version.qComponentVersion}`); // This will display the retrevied engine version.
   
     // TODO: Close the session
 
