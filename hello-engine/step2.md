@@ -21,7 +21,7 @@ Enigma create uses a configuration object, create a configuration object with th
 <pre class="file" data-target="clipboard"> enigma.create({ 
       schema,
       url: 'ws://localhost:19076/app',
-      createSocket: url => new WebSocket(url)cd,
+      createSocket: url => new WebSocket(url)
   });
 </pre>
 </p>
@@ -34,7 +34,7 @@ After you have created a session object, open the session!
 <summary>Show solution</summary>
 <p>
 <pre class="file" data-target="clipboard">
-session.open();
+const global = await session.open();
 </pre>
 </p>
 </details>  
@@ -47,7 +47,7 @@ With an open session we can retieve the version of the session!
 <summary>Show solution</summary>
 <p>
 <pre class="file" data-target="clipboard">
-global.engineVersion();
+ const version = await global.engineVersion();
 </pre>
 </p>
 </details>  
@@ -58,7 +58,7 @@ When were are done communicating with engine close the session!
 
  <details>
 <summary>Show sultion</summary>
-<pre class="file" data-target="clipboard">session.close();</pre>
+<pre class="file" data-target="clipboard">await session.close();</pre>
 </details>  
 
 #### 4. Run the app
@@ -71,6 +71,7 @@ When were are done communicating with engine close the session!
 
 
 
+   
 Run the code: <br>
 `npm run start`{{execute}}
 
