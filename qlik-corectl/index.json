@@ -1,0 +1,72 @@
+{
+  "title": "Qlik CoreCtl",
+  "description": "A tutorial learning how to setup Qlik CoreCtl",
+  "details": {
+    "steps": [
+      {
+        "title": "Prerequisites",
+        "text": "step1.md",
+        "courseData": "background.sh",
+        "code": "foreground.sh"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "credits": ""
+    },
+    "finish": {
+      "text": "finish.md"
+    },
+    "files": [
+      "hello-data.js"
+    ],
+    "assets": {
+      "host01": [
+        {
+          "file": "docker-compose.yml",
+          "target": "/home/scrapbook/tutorial/example",
+          "chmod": "+x"
+        },
+        {
+          "file": "movies.csv",
+          "target": "/home/scrapbook/tutorial/example/coreCtl/data",
+          "chmod": "+x"
+        },
+        {
+          "file": "hello-corectl.json",
+          "target": "/home/scrapbook/tutorial/example/coreCtl",
+          "chmod": "+x"
+        },
+        {
+          "file": "package.json",
+          "target": "/home/scrapbook/tutorial/example",
+          "chmod": "+x"
+        },
+        {
+          "file": "testscript.qvs",
+          "target": "/home/scrapbook/tutorial/example/coreCtl",
+          "chmod": "+x"
+        },
+        {
+          "file": "corectl.yml",
+          "target": "/home/scrapbook/tutorial/example/coreCtl",
+          "chmod": "+x"
+        },
+        {
+          "file": "wait.sh",
+          "target": "/usr/local/bin/",
+          "chmod": "+x"
+        }
+      ]
+    }
+  },
+  "environment": {
+    "hidefinish": true,
+    "uilayout": "editor-terminal",
+    "uisettings": "javascript",
+    "uieditorpath": "/home/scrapbook/tutorial/example/coreCtl"
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}

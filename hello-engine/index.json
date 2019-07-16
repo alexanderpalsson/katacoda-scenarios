@@ -3,10 +3,7 @@
   "description": "Learn how to set up a websocket connection to Qlik Associative Engine",
   "difficulty": "beginner",
   "time": "2 minutes",
-  
-  
   "details": {
-   
     "steps": [
       {
         "title": "Prerequisites",
@@ -28,12 +25,28 @@
     },
     "assets": {
       "host01": [
-          {"file": "docker-compose.yml", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},
-          {"file": "package.json", "target": "/home/scrapbook/tutorial/example", "chmod": "+x"},
-          {"file": "app.js", "target": "/home/scrapbook/tutorial/example/hello-engine", "chmod": "+x"},
-          {"file": "wait.sh", "target": "/usr/local/bin/", "chmod": "+x"}
+        {
+          "file": "docker-compose.yml",
+          "target": "/home/scrapbook/tutorial/example",
+          "chmod": "+x"
+        },
+        {
+          "file": "package.json",
+          "target": "/home/scrapbook/tutorial/example",
+          "chmod": "+x"
+        },
+        {
+          "file": "app.js",
+          "target": "/home/scrapbook/tutorial/example/hello-engine",
+          "chmod": "+x"
+        },
+        {
+          "file": "wait.sh",
+          "target": "/usr/local/bin/",
+          "chmod": "+x"
+        }
       ]
-  }
+    }
   },
   "environment": {
     "uilayout": "editor-terminal",
@@ -43,4 +56,3 @@
     "imageid": "ubuntu"
   }
 }
-
