@@ -4,10 +4,27 @@
   "details": {
     "steps": [
       {
-        "title": "Prerequisites",
+        "title": "Start coreCtl",
         "text": "step1.md",
         "courseData": "background.sh",
         "code": "foreground.sh"
+      },
+      {
+        "title": "Prerequisites",
+        "text": "step2.md"
+      },
+      {
+        "title": "Prerequisites",
+        "text": "step3.md"
+      },
+      {
+        "title": "Prerequisites",
+        "text": "step4.md"
+        
+      },
+      {
+        "title": "Prerequisites",
+        "text": "step5.md"
       }
     ],
     "intro": {
@@ -38,7 +55,7 @@
           "chmod": "+x"
         },
         {
-          "file": "hello-corectl.json",
+          "file": "corectl-object.json",
           "target": "/home/scrapbook/tutorial/example/coreCtl",
           "chmod": "+x"
         },
@@ -56,7 +73,7 @@
           "file": "corectl.yml",
           "target": "/home/scrapbook/tutorial/example/coreCtl",
           "chmod": "+x"
-        }      
+        }
       ]
     }
   },
