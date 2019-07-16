@@ -1,4 +1,3 @@
-## Let's make the  app!
 
 We have prepared a file for you open the file `app.js`{{open}} to check it out.
 
@@ -20,7 +19,7 @@ To create a session you will have to use `enigma.create()`. Enigma create uses a
 <pre class="file" data-target="clipboard"> enigma.create({ 
       schema,
       url: 'ws://localhost:19076/app',
-      createSocket: url => new WebSocket(url),
+      createSocket: url => new WebSocket(url)cd,
   });
 </pre>
 </p>
