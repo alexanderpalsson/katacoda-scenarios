@@ -16,7 +16,8 @@ There are 4 prepared files:
 #### 1. CoreCtl build
 When you run the command: <br> `corectl build`{{execute}} <br>
 CoreCtl will look for file with the name corectl.yml in the current folder. The corectl.yml file is the configuration file of how corectl will run. You can leave it empty and then configure corectl using flags instead or run the file with configurations and then override them with flags. 
-<br>
+<br>`corectl build -e localhost:19076 -app "my app"`{{execute}} <br>
+Will run an corectl instance that looks for an engine on localhost:19076 and runs the against the app "my app"
 <br>
 Look a the specification of how to create the [**corectl config**](https://github.com/qlik-oss/corectl/blob/master/docs/corectl_config.md), here you will find the answers to this tutorial. 
 
@@ -26,13 +27,33 @@ Edit the `corectl.yml`{{open}} so that is connects to engine.
 
 <details> <summary>Show solution</summary>
 <p> 
-<pre class="file" data-target="clipboard"> engine: localhost:19076 # URL and port to running Qlik Associative Engine instance
+<pre class="file" data-target="clipboard">engine: localhost:19076 # URL and port to running Qlik Associative Engine instance
 </pre>
 </p>
 </details>  
 <br>
- Use `corectl build`{{execute}} to rebuild the application
 
+ Use `corectl build`{{open}} to rebuild the application 
+ <br>
+ Use `corectl build`{{open}} to rebuild the application 
+ That will return `ERROR no app specified`.
+ <br>
+ Create your own app to run against.
+
+ <details> <summary>Show solution</summary>
+ <p> 
+<pre class="file" data-target="clipboard">engine: localhost:19076 # URL and port to running Qlik Associative Engine instance
+app: /testapp.qvf   # App name that the tool should open a session against.
+</pre>
+</p>
+This can also be done using a flag:
+<br>
+
+`corectl build -a "my app"`{{execute}}
+</details>  
+
+
+Now you should
 
 In this tutorial we will use [enigma.js](https://github.com/qlik-oss/enigma.js) which is a library that helps you communicate with Qlik QIX Engine. You can use enigma.js to build your own browser-based analytics tools, back-end services, or command-line scripts.
 
