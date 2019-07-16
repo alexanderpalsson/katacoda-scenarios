@@ -20,4 +20,19 @@ The setup uses [Node.js]https://www.npmjs.com/get-npm and [Docker](https://www.d
 Before you can use the Qlik engine you need to accept the EULA by defining the ACCEPT_EULA environment variable. 
 `ACCEPT_EULA=yes docker-compose up -d`{{execute}}
  
- 
+ <details>
+<summary>I could use some help...</summary>
+<p>
+
+```c#
+public class Order
+{
+    public int OrderId { get; set; }
+    public int CustomerId { get; set; }
+
+    public List<int> Products { get; set; }
+}
+\```
+
+</p>
+</details>  
