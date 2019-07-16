@@ -11,10 +11,8 @@ const schema = require('enigma.js/schemas/3.2.json');
      
     });
     const temp = await // TODO open the session
-
     const version = await // Todo retrieve engine version
     console.log(`Engine version retrieved: ${version.qComponentVersion}`);
-
     // TODO: Close the session
     console.log('Session closed.');
   } catch (err) {
