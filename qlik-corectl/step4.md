@@ -22,10 +22,13 @@ objects:
 </p>
 </details>  
 
-We have  now loaded the data into a hypercube.
+We have  now loaded the data into a hypercube. However the objects are mostly use when visualizing data. 
 
-The objects are mostly use when visualizing data. You could for example build re-write the app used in the load data core example to load the settings from corectl.
+## Extra 
+You could for example re-write the app used in the [load data core example] to load the settings from corectl.
 
+<details> <summary>Show code</summary>
+<p> 
 <pre class="file" data-target="clipboard">
 /* eslint no-console:0 */
 const WebSocket = require('ws');
@@ -60,3 +63,5 @@ const schema = require('enigma.js/schemas/3.2.json');
   }
 })();
 </pre>
+</p>
+</details>  

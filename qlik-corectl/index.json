@@ -10,7 +10,7 @@
         "code": "foreground.sh"
       },
       {
-        "title": "Before getting started",
+        "title": "Before we get started",
         "text": "before.md",
         "verify": "step1-verify.sh"
       },

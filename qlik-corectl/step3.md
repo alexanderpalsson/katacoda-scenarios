@@ -1,23 +1,24 @@
 In this step we will load data into the app.<br> 
 
-Again look at the (https://github.com/qlik-oss/corectl/blob/master/docs/corectl_config.md)
-Again we will edit the `corectl.yml`{{open}} file but we also need a **load script**: <br>
+Again [corectl config](https://github.com/qlik-oss/corectl/blob/master/docs/corectl_config.md) will be very usefull
+<br>
 
-* `testscript.qvs`{{open}} - A load script that will be used in *Step 3* to load data. 
+In this step we will continue edit the `corectl.yml`{{open}} file but we also need a **load script**: <br>  `testscript.qvs`{{open}} and **some data**: `data/movie.cvs `{{open}} 
+<br>
 
-and **some data**:
-* `data/movie.cvs `{{open}} - The data that will be loaded, contains information about 10 movies. 
-**OBS** This data is loaded into a volume in a docker container, the internal docker container is /data. If you are curios about the docker file check it out here `../docker-compose.yml`{{open}} 
-## 1. Edit the corectl.yml to load data
-To be able to load data you will:
-1. need to define what load script you want to used. 
+**Note** This data is loaded into a volume in a docker container, the internal docker container is /data. If you are curios about the docker file check it out here `../docker-compose.yml`{{open}} 
+
+## Setup a connection to the data
+
+To be able to load data into your newly created app you will have to:
+1. define what load script you want to use. 
 2. Then you will need to expose a connection from the engine container to the load script.
 
 <br>
 
 **1. Exercise: Add the script**
 
-  Edit the `corectl.yml`{{open}} file so that it uses the `testscript.qvs` loadscript.
+  Set the script path in `corectl.yml`{{open}} file so that it point at `testscript.qvs`.
 
 <details> <summary>Show solution</summary>
 <p> 
@@ -30,7 +31,7 @@ script: testscript.qvs # Path to a script that should be set in the app
 </details>  
 
 **2. Exercise: Expose a connection**  
-  Edit the `corectl.yml`{{open}} so that it opens the connection `testdata` to the `folder` `/data` with in the engine container.
+  Edit the `corectl.yml`{{open}} so that it opens the connection `testdata` to the `folder` `/data` within the engine container.
 
 <details> <summary>Show solution</summary>
 <p> 
@@ -48,7 +49,10 @@ connections: # Connections that should be created in the app
 </details>  
 <br>
 
-**Connection setup examples**
+Run `core build`{{execute}} to update the changes.
+
+<details> <summary>Connection setup examples</summary>
+<p> 
 
 The load script can only load data from the exposed connections specified in the `corectl.yml`{{open}}. 
 ```yml
@@ -72,8 +76,10 @@ connections: # Connections that should be created in the app
  
 ```
 This would expose two connection:<br>
-The first connection is the same as in the other example. <br> The second one is a webdata connection to a gist on github.
+The first connection is the same as in the firste example. <br> The second one is a webdata connection to a gist on github.
 
+</p>
+</details> 
 
 ## 2. The load script
 First take a look at `testscript.qvs`{{open}}. If you are familiar with SQL you will see some similarities this is because when the load scripts once were made they were inspired by SQL. 
@@ -88,20 +94,21 @@ FROM [lib://testdata/movies.csv]
 `
 
 This script will load everything from `movies.cvs` at the exposed connection lib://testdata/. <br>
-lib is a specification when the data is from a local source in this case the engine container.
+*lib* is a specification when the data is from a local source in this case the engine container.
 <br>Depending on what data source, the load scripts will be different. 
 <br>
 
 **Load different kinds of file types**<br>
+
 Read about [core data loading](https://github.com/qlik-oss/core-data-loading) to learn how to load different file types. 
 
 
 
-## 3. Analyze the data with coreCtl
+## Analyze the data with coreCtl
 
-We have now loaded `data/movie.cvs `{{open}} into our myapp.qvf app. There are a bunch of analytics tool we can use on the loaded data.
+We have now loaded `data/movie.cvs `{{open}} into our myapp.qvf app. corectl has a bunch of unbuilt analytics tool we can use on the loaded data.
 <br>
-To see the analysis tools: `corectl`{{execute}} and under `App Analysis Commands` you will find the useful tools.
+If you run `corectl`{{execute}} you will see some helpful analytic tool under the heading `App Analysis Commands` 
 <br>
 
 ![Analysis](assets/analys.png)
@@ -118,17 +125,19 @@ To see the analysis tools: `corectl`{{execute}} and under `App Analysis Commands
 `corectl values <field name>`{{execute}} - Displays the values in the specific field
 <br>
 
-From `corectl fields`{{execute}} we see that the app contains a field called Movie. By us
-ing `corectl values Movie`{{execute}} we can se tha values of the Movie field.
+From `corectl fields`{{execute}} we see that the app contains a field called Movie. <br>
+Using `corectl values Movie`{{execute}} will display all the top values of the Movies field.
 <br>
 
->>As you can see there are more two more fields in our data tables, can you use `corectl fields` to figure out how many of the movies that were made in 2009?<<
+**Exercise**
+As you can see there are more two more fields in our data tables, can you use `corectl fields` to figure out:
+ >>how many of the movies that were made in 2009?<<
 [ ] One
 [*] Two
 [ ] Three
 
 
-## 4. Catwalk
+## Catwalk
 After you have created the initial load script, chances are that you experience data modeling problems. In such cases, you may need help finding out how the data is associated and how interactions with the data impacts the model.
 
 Catwalk provides you with a view of all your tables, fields, their associations as well as information about the data within.
@@ -139,10 +148,12 @@ Since this katacoda environment has no inbuilt browser you will have to manually
 
 We have configure the websocket URL for this example:
 
- [**Catwalk for this tutorial!**](https://catwalk.core.qlik.com/?engine_url=wss://[[HOST_SUBDOMAIN]]-19076-[[KATACODA_HOST]].environments.katacoda.com/home/engine/Qlik/Sense/Apps/myapp.qvf) 
+ **View catwalk for this tutorial!**: <br>
+ https://catwalk.core.qlik.com/?engine_url=wss://[[HOST_SUBDOMAIN]]-19076-[[KATACODA_HOST]].environments.katacoda.com/home/engine/Qlik/Sense/Apps/myapp.qvf
+<br>
 
-However since we have load just a small .cvs file into our app the catwalk wont help us much. But when the data structures get bigger and more complex catwalk can be a really useful tool.<br>
-If you are curious about catwalk you can be utilize with more complex data take a look at[catwalk weather data example](https://catwalk.core.qlik.com/?engine_url=wss://apps.core.qlik.com/app/doc/01775889-c700-413f-9b0e-6ba1837c52b0/).
+However since we have load just a small .cvs file into our app the catwalk display much. But when the data structures getting bigger and more complex catwalk can be a really useful tool.<br>
+If you are curious about how catwalk can be utilize with a more complex data take a look at the [catwalk weather data example](https://catwalk.core.qlik.com/?engine_url=wss://apps.core.qlik.com/app/doc/01775889-c700-413f-9b0e-6ba1837c52b0/).
 
 **Next step**
 <br> In next step we will use an object to structure the data.

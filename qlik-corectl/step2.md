@@ -1,22 +1,23 @@
-**Tip** Run `corectl` in the terminal window to see corectls CLI commands: 
+**Tip** You can always run `corectl` in the terminal window to see corectls CLI commands: 
 `corectl`{{execute}}
 
 ## 1. CoreCtl build
-In order to use corectl tools you will have to build/load an app. The command that builds(or rebuild) apps is `corectl build`{{execute}}. <br>
+In order to use corectl tools you will have to build/load an app. The cli command that builds(or rebuild) apps is `corectl build`. <br>
 
 
 There are two ways to use `corectl build`:
 <br>
 
-**Configurations file**
-<br>The simplest way and the way we will build apps in this tutorial is to use a configuration file. <br>
-When you run the command: `corectl build`{{execute}} CoreCtl will automatically look for file with the name ***corectl.yml*** in the current working folder. In the corectl.yml file is it possible to setup basic configuration for corectl for instance: engine connection details, app and objects. <br>
+**1. Configurations file**
+<br>The simplest way and the way we use in this tutorial is to use a configuration file. <br>
+When you run the command: `corectl build`{{execute}} CoreCtl will automatically look for file with the name ***corectl.yml*** in the current working folder. In this corectl.yml file is it possible to setup basic configuration for corectl such as: engine connection details, app and objects. <br>
 
-Look a the specification of how to create the [**corectl configuration file**](https://github.com/qlik-oss/corectl/blob/master/docs/corectl_config.md), this is were you will find most **solutions** to the exercises in this tutorial. 
+For this tutorial we have provide an empty configuration file `corectl.yml`{{open}}. But you can a the specification of  [**corectl configuration file**](https://github.com/qlik-oss/corectl/blob/master/docs/corectl_config.md) to see example and how to create config files. The  [**corectl configuration file**](https://github.com/qlik-oss/corectl/blob/master/docs/corectl_config.md) is probably were you will find almost all **solutions** to the exercises provided in this tutorial. 
 <br>
 
-**Flags**
-<br>The second way you can build corectl is with providing flags to the `corectl build`{{execute}} command. You will find the flag options in the [**corectl configuration file**](https://github.com/qlik-oss/corectl/blob/master/docs/corectl_config.md) as well.
+
+**2. Flags**
+<br>The second way you can build corectl is with providing flags to the `corectl build` command. You can display the flag options with `corectl build -h`{{execute}}   
 <br>
 
 ![Analysis](assets/flags.png)
@@ -34,10 +35,9 @@ Edit the `corectl.yml`{{open}} so that is connects to engine.
 </details>  
 <br>
 
- Use `corectl build`{{open}} to rebuild the application 
+ Use `corectl build`{{execute}} to build the application 
  <br>
 
- Use `corectl build`{{open}} to rebuild the application 
  That will return `ERROR no app specified`.
  <br>
 
@@ -51,12 +51,9 @@ Edit the `corectl.yml`{{open}} so that is connects to engine.
 app: /myapp.qvf   # App name that the tool should open a session against.
 </pre>
 </p>
-This can also be done using a flag:
-<br>
+</details>
 
-`corectl build -a "my app"`{{execute}}
-</details>  
-
+Run `corectl build`{{execute}} again!
 
 Now you should have an up and running against an engine!!
  <br>
@@ -65,9 +62,12 @@ You can check your apps with: <br> <br>
 `corectl app ls`{{execute}}
 <br>
 <br>
-However this is an empty app, in next step we will learn how to load data in to the app.
+Or display meta of your data: <br> <br>
+`corectl meta`{{execute}}
 
-## 4. Create an app with corectl build and flags
+As can be seen this is an empty app, in next step we will learn how to load data to the app.
+
+## 4. Create an app using flags (optional just for the curios) 
 
 To use the same setup as in the config file we have to use the flags:
 * `-e`{{execute}} which specifies URL to QIX engine and *-a* which 
