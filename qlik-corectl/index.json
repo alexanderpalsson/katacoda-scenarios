@@ -10,7 +10,7 @@
         "code": "foreground.sh"
       },
       {
-        "title": "Prerequisites",
+        "title": "Load data to the app",
         "text": "step2.md"
       },
       {

@@ -13,6 +13,9 @@ There are 4 prepared files:
 * `data/movie.cvs `{{open}} - The data that will be loaded. Contains information about 10 movies.
 * `corectl-object.json `{{open}} - This file contains a object, if you are new to Qlik you might want to learn more about [objects](http://help.qlik.com/en-US/sense-developer/June2019/SubSystems/Platform/Content/Sense_PlatformOverview/Concepts/GenericObject.htm).
 
+Run corectl to se the different commands: 
+`corectl`{{execute}}
+
 #### 1. CoreCtl build
 When you run the command: <br> `corectl build`{{execute}} <br> <br>
 
@@ -22,7 +25,7 @@ Will run an corectl instance that looks for an engine on localhost:19076 and run
 <br>
 Look a the specification of how to create the [**corectl config**](https://github.com/qlik-oss/corectl/blob/master/docs/corectl_config.md), here you will find the answers to this tutorial. 
 
-#### 2. Connect corectl to engine
+## 2. Connect corectl to engine
 
 Edit the `corectl.yml`{{open}} so that is connects to engine.
 
