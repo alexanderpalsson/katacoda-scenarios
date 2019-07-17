@@ -4,27 +4,23 @@
   "details": {
     "steps": [
       {
-        "title": "Start coreCtl",
+        "title": "What is coreCtl",
         "text": "step1.md",
         "courseData": "background.sh",
         "code": "foreground.sh"
       },
       {
-        "title": "Load data to the app",
+        "title": "Setup corectl",
         "text": "step2.md"
       },
       {
-        "title": "Prerequisites",
+        "title": "Load data",
         "text": "step3.md"
       },
       {
-        "title": "Prerequisites",
+        "title": "Objects",
         "text": "step4.md"
         
-      },
-      {
-        "title": "Prerequisites",
-        "text": "step5.md"
       }
     ],
     "intro": {

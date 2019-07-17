@@ -106,3 +106,8 @@ There are more fields in our data tables can you use value to find out when the 
 [ ] One
 [*] Two
 [ ] Three
+
+
+**Next step**
+
+In next step we will use an object to structure the data.
