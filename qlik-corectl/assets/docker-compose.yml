@@ -8,4 +8,4 @@ services:
     ports:
       - "19076:9076"
     volumes:
-      - ./data:/data
+      - ./coreCtl/data:/data

@@ -1,65 +1,37 @@
-**Note:** coreCtl is installed in this katacoda enviroment if you want to run coreCtl locally on you machine see the [coreCtl documentation](https://github.com/qlik-oss/corectl)
+## What is corectl?
+Corectl is a command line tool to perform reloads, fetch metadata and evaluate expressions in Qlik Core apps. <br>
 
-Objectvies:
-* Create a coreCtl config file
-* Use basic coreCtl commands
-* Create a simple Qlik app
-* Load data into the app
-* Use object to structure data
+To simplify usage of corectl, basic configurations such as: engine connection details, app and objects, can be described in a configuration file. You can look at the [example configuration file](https://github.com/qlik-oss/corectl/blob/master/examples/corectl.yml) to get a sense how it works.<br>
+corectl will automatically check for a corectl.yml | corectl.yaml file in your current directory, removing the need to pass the config file using flags for each command.
 
-There are 4 prepared files:
-* `corectl.yml`{{open}} - This is the config file that you will creat
+
+## Running coreCtl on you local machine
+If you want to run coreCtl locally on you machine see the [coreCtl documentation](https://github.com/qlik-oss/corectl) to install corectl.
+
+To run corectl you will need a engine running in a docker conatiner. If you are unfamilliar with docker you can read more about [docker containers](https://www.docker.com/resources/what-container) after the tutorial. If you are curious about what docker-compose file we use in this example you can `../docker-compose.yml`
+
+However in this turorail you don't have to worry about docker or installing corectl **everything is preinstalled in the enviroment. 
+
+
+## Before we get started
+
+In order to use Qlik engine you have to accept EULA by cliking on this command you accept EULA: <br>
+ACCEPT_EULA=yes docker-compose up -d{{execute}}
+
+## Objectives in this tutorial
+
+* Create a coreCtl configuration file
+* Run coreCtl
+* Load data with coreCtl
+* Use the coreClt cli to anlyze the data
+* Load objectst
+
+## Prepared files
+There are 4 prepared files in this repo:
+* `corectl.yml`{{open}} - This is the configuration file that you will edit
 * `testscript.qvs`{{open}} - A load script that will be used in *Step 3* to load data. 
-* `data/movie.cvs `{{open}} - The data that will be loaded. Contains information about 10 movies.
-* `corectl-object.json `{{open}} - This file contains a object, if you are new to Qlik you might want to learn more about [objects](http://help.qlik.com/en-US/sense-developer/June2019/SubSystems/Platform/Content/Sense_PlatformOverview/Concepts/GenericObject.htm).
-
+* `data/movie.cvs `{{open}} - The data that will be loaded. (**Note** this data is actually mounted into the docker container.)
+* `corectl-object.json `{{open}} - The object that will be loaded in *Step 4*
 Run corectl to se the different commands: 
 `corectl`{{execute}}
 
-#### 1. CoreCtl build
-When you run the command: <br> `corectl build`{{execute}} <br> <br>
-
-CoreCtl will look for file with the name ***corectl.yml*** in the current folder. The corectl.yml file is the configuration file of how corectl will run. <br> You can leave the file empty and then configure corectl using flags instead or run the file with configurations and then override them with flags. 
-<br>`corectl build -e localhost:19076 -a "my app"`{{execute}} <br>
-Will run an corectl instance that looks for an engine on localhost:19076 and runs the against the app "my app"
-<br>
-Look a the specification of how to create the [**corectl config**](https://github.com/qlik-oss/corectl/blob/master/docs/corectl_config.md), here you will find the answers to this tutorial. 
-
-## 2. Connect corectl to engine
-
-Edit the `corectl.yml`{{open}} so that is connects to engine.
-
-<details> <summary>Show solution</summary>
-<p> 
-<pre class="file" data-target="clipboard">engine: localhost:19076 # URL and port to running Qlik Associative Engine instance
-</pre>
-</p>
-</details>  
-<br>
-
- Use `corectl build`{{open}} to rebuild the application 
- <br>
- Use `corectl build`{{open}} to rebuild the application 
- That will return `ERROR no app specified`.
- <br>
- Create your own app to run against.
-
- <details> <summary>Show solution</summary>
- <p> 
-<pre class="file" data-target="clipboard">engine: localhost:19076 # URL and port to running Qlik Associative Engine instance
-app: /testapp.qvf   # App name that the tool should open a session against.
-</pre>
-</p>
-This can also be done using a flag:
-<br>
-
-`corectl build -a "my app"`{{execute}}
-</details>  
-
-
-Now you should have an up and running against an engine. <br>
-You can check your apps with: <br> <br>
-`corectl app ls`{{execute}}
-<br>
-<br>
-However this app is empty, in next step we will load data to the app.

@@ -23,7 +23,7 @@ script: /testscript.qvs # Path to a script that should be set in the app
 <p> 
 <pre class="file" data-target="clipboard">
 engine: localhost:19076 # URL and port to running Qlik Associative Engine instance
-app: /testscript.qvf   # App name that the tool should open a session against.
+app: /myapp.qvf   # App name that the tool should open a session against.
 script: testscript.qvs # Path to a script that should be set in the app
 connections: # Connections that should be created in the app
   testdata: # Name of the connection
@@ -90,30 +90,31 @@ To see the tools: `corectl`{{execute}} and under `App Analysis Commands` you wil
 ![Analysis](assets/analys.png)
 
 <br>
-
 `corectl fields`{{execute}} - To see what fields is in the app
 <br>
+
 `corectl tables`{{execute}} - To see the tables
 <br>
 
-We see that we have a field called Movie, lets see what inside. Can you use `corectl values` and specify what field we want to see.
+We see that the app contains a field called Movie. By using `corectl values`{{execute}} we can se whats inside he fields.
 <br>
-`corectl values Movie`{{execute}} - To see the values in the Movie field.
 
-There are more fields in our data tables can you use value to find out when the movies where made?
+`corectl values Movie`{{execute}} - Will display the values in the Movie field.<br>
 
->>How many of the movies where made 2009?<<
+
+>>There are more two more fields in our data tables can you see how many of the movies where made in 2009?<<
 [ ] One
 [*] Two
 [ ] Three
 
 
 #### 4. Catwalk
-Catwalk is a tool linked. When running corectl locally on your machine you can use `corectl catwalk`{{}} to run catwalk in a browser. Since this enviroment has no browser you can display use the URL: https://catwalk.core.qlik.com/?engine_url=wss://[[HOST_SUBDOMAIN]]-19076-[[KATACODA_HOST]].environments.katacoda.com/home/engine/Qlik/Sense/Apps/testscript.qvf
+Catwalk is a tool linked. When running corectl locally on your machine you can use `corectl catwalk`{{}} to run catwalk in a browser. 
+<br>
+Since this enviroment has no browser you can display use a [catwalk websocket Url](https://catwalk.core.qlik.com/?engine_url=wss://[[HOST_SUBDOMAIN]]-19076-[[KATACODA_HOST]].environments.katacoda.com/home/engine/Qlik/Sense/Apps/myapp.qvf).
 
 
-For a more detalied example look at the [Cat walk example](https://catwalk.core.qlik.com/?engine_url=wss://apps.core.qlik.com/app/doc/01775889-c700-413f-9b0e-6ba1837c52b0/)
+If you are curious about catwalk you can look at [catwalk weather data example](https://catwalk.core.qlik.com/?engine_url=wss://apps.core.qlik.com/app/doc/01775889-c700-413f-9b0e-6ba1837c52b0/) which displays an app much more complexe data structure.
 
 **Next step**
-
-In next step we will use an object to structure the data.
+<br> In next step we will use an object to structure the data.

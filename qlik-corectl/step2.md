@@ -1,31 +1,25 @@
-**Note:** coreCtl is installed in this katacoda enviroment if you want to run coreCtl locally on you machine see the [coreCtl documentation](https://github.com/qlik-oss/corectl)
-
-Objectvies:
-* Create a coreCtl config file
-* Use basic coreCtl commands
-* Create a simple Qlik app
-* Load data into the app
-* Use object to structure data
-
-There are 4 prepared files:
-* `corectl.yml`{{open}} - This is the config file that you will creat
-* `testscript.qvs`{{open}} - A load script that will be used in *Step 3* to load data. 
-* `data/movie.cvs `{{open}} - The data that will be loaded. Contains information about 10 movies.
-* `corectl-object.json `{{open}} - This file contains a object, if you are new to Qlik you might want to learn more about [objects](http://help.qlik.com/en-US/sense-developer/June2019/SubSystems/Platform/Content/Sense_PlatformOverview/Concepts/GenericObject.htm).
-
-Run corectl to se the different commands: 
+**Tip** Run `corectl`  in the terminal to see corectls CLI commands: 
 `corectl`{{execute}}
 
-#### 1. CoreCtl build
-When you run the command: <br> `corectl build`{{execute}} <br> <br>
-
-CoreCtl will look for file with the name ***corectl.yml*** in the current folder. The corectl.yml file is the configuration file of how corectl will run. <br> You can leave the file empty and then configure corectl using flags instead or run the file with configurations and then override them with flags. 
-<br>`corectl build -e localhost:19076 -a "my app"`{{execute}} <br>
-Will run an corectl instance that looks for an engine on localhost:19076 and runs the against the app "my app"
+## 1. CoreCtl build
+There are two ways to use `corectl build`:
 <br>
-Look a the specification of how to create the [**corectl config**](https://github.com/qlik-oss/corectl/blob/master/docs/corectl_config.md), here you will find the answers to this tutorial. 
 
-## 2. Connect corectl to engine
+**Configurations file**
+<br>The simplest way that we will use in this tutorial is to use a configuration file. <br>
+When you run the command: `corectl build`{{execute}} CoreCtl will look for file with the name ***corectl.yml*** in the current folder. In the corectl.yml file its possible to setup basic configuration for corectl for instance: engine connection details, app and objects. <br>
+
+Look a the specification of how to create the [**corectl configuration file**](https://github.com/qlik-oss/corectl/blob/master/docs/corectl_config.md), this is were you will find most **solutions** to the exercises this tutorial. 
+<br>
+
+**Flags**
+<br>The second way you can build corectl is with providing flags to the `corectl build`{{execute}} command.
+<br>
+
+![Analysis](assets/flags.png)
+
+
+## 2. Exercise: Connect corectl to engine
 
 Edit the `corectl.yml`{{open}} so that is connects to engine.
 
@@ -39,15 +33,19 @@ Edit the `corectl.yml`{{open}} so that is connects to engine.
 
  Use `corectl build`{{open}} to rebuild the application 
  <br>
+
  Use `corectl build`{{open}} to rebuild the application 
  That will return `ERROR no app specified`.
  <br>
- Create your own app to run against.
+
+ ## 3. Exercise: Create an app
+
+ Edit the `corectl.yml`{{open}} and specify an app you want to use.
 
  <details> <summary>Show solution</summary>
  <p> 
 <pre class="file" data-target="clipboard">engine: localhost:19076 # URL and port to running Qlik Associative Engine instance
-app: /testapp.qvf   # App name that the tool should open a session against.
+app: /myapp.qvf   # App name that the tool should open a session against.
 </pre>
 </p>
 This can also be done using a flag:
@@ -63,3 +61,13 @@ You can check your apps with: <br> <br>
 <br>
 <br>
 However this app is empty, in next step we will load data to the app.
+
+## 4. Running build with flags
+
+To use the same setup as in the config file we have to use the flags:
+* `-e`{{execute}} which specifies URL to QIX engine and *-a* which 
+* `-a`{{execute}} which specifies the app name of the app
+<br>
+
+Something like this: <br>
+`corectl build -e "localhost:19076" -a "myapp.qvf"`{{execute}}

@@ -1,5 +1,5 @@
 engine: localhost:19076 # URL and port to running Qlik Associative Engine instance
-app: /testscript.qvf   # App name that the tool should open a session against.
+app: /testapp.qvf   # App name that the tool should open a session against.
 script: /testscript.qvs # Path to a script that should be set in the app
 connections: # Connections that should be created in the app
   testdata: # Name of the connection
