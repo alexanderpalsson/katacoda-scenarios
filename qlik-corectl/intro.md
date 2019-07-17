@@ -1,9 +1,10 @@
-engine: localhost:19076 # URL and port to running Qlik Associative Engine instance
-app: /testapp.qvf   # App name that the tool should open a session against.
-script: /testscript.qvs # Path to a script that should be set in the app
-connections: # Connections that should be created in the app
-  testdata: # Name of the connection
-      connectionstring: /data # Connectionstring (qConnectionString) of the connection. For a folder connector this is an absolute or relative path inside of the engine docker container.
-      type: folder # Type of connection
-objects:
-  - ./hello-corectl.json # Path to objects that should be created from a json file. Accepts wildcards.
+Hi and welcome to the Qlik corectl introduction tutorial.
+
+In this tutorial you will learn how to: <br>
+* Create a coreCtl configuration file
+* Run coreCtl
+* Load data with coreCtl
+* Use the coreClt cli to analyze the data
+* Load objects
+
+![Analysis](assets/corectl-logo.svg)

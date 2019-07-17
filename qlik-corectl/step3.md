@@ -122,7 +122,7 @@ From `corectl fields`{{execute}} we see that the app contains a field called Mov
 ing `corectl values Movie`{{execute}} we can se tha values of the Movie field.
 <br>
 
->>Apparently there are more two more fields in our data tables, can you use `corectl fields` to figure out how many of the movies that were made in 2009?<<
+>>As you can see there are more two more fields in our data tables, can you use `corectl fields` to figure out how many of the movies that were made in 2009?<<
 [ ] One
 [*] Two
 [ ] Three
