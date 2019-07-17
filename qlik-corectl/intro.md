@@ -7,4 +7,4 @@ In this tutorial you will learn how to: <br>
 * Use the coreClt cli to analyze the data
 * Load objects
 
-![Analysis](assets/corectl-logo.svg)
+![Analysis](assets/corectl-logo.png)
