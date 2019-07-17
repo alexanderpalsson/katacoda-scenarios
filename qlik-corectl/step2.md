@@ -2,18 +2,21 @@
 `corectl`{{execute}}
 
 ## 1. CoreCtl build
+In order to use corectl tools you will have to build/load an app. The command that builds(or rebuild) apps is `corectl build`{{execute}}. <br>
+
+
 There are two ways to use `corectl build`:
 <br>
 
 **Configurations file**
-<br>The simplest way that we will use in this tutorial is to use a configuration file. <br>
-When you run the command: `corectl build`{{execute}} CoreCtl will look for file with the name ***corectl.yml*** in the current folder. In the corectl.yml file its possible to setup basic configuration for corectl for instance: engine connection details, app and objects. <br>
+<br>The simplest way and the way we will build apps in this tutorial is to use a configuration file. <br>
+When you run the command: `corectl build`{{execute}} CoreCtl will automatically look for file with the name ***corectl.yml*** in the current working folder. In the corectl.yml file is it possible to setup basic configuration for corectl for instance: engine connection details, app and objects. <br>
 
-Look a the specification of how to create the [**corectl configuration file**](https://github.com/qlik-oss/corectl/blob/master/docs/corectl_config.md), this is were you will find most **solutions** to the exercises this tutorial. 
+Look a the specification of how to create the [**corectl configuration file**](https://github.com/qlik-oss/corectl/blob/master/docs/corectl_config.md), this is were you will find most **solutions** to the exercises in this tutorial. 
 <br>
 
 **Flags**
-<br>The second way you can build corectl is with providing flags to the `corectl build`{{execute}} command.
+<br>The second way you can build corectl is with providing flags to the `corectl build`{{execute}} command. You will find the flag options in the [**corectl configuration file**](https://github.com/qlik-oss/corectl/blob/master/docs/corectl_config.md) as well.
 <br>
 
 ![Analysis](assets/flags.png)
@@ -55,14 +58,16 @@ This can also be done using a flag:
 </details>  
 
 
-Now you should have an up and running against an engine. <br>
+Now you should have an up and running against an engine!!
+ <br>
+
 You can check your apps with: <br> <br>
 `corectl app ls`{{execute}}
 <br>
 <br>
-However this app is empty, in next step we will load data to the app.
+However this is an empty app, in next step we will learn how to load data in to the app.
 
-## 4. Running build with flags
+## 4. Create an app with corectl build and flags
 
 To use the same setup as in the config file we have to use the flags:
 * `-e`{{execute}} which specifies URL to QIX engine and *-a* which 
