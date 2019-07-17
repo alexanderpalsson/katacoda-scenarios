@@ -108,6 +108,12 @@ There are more fields in our data tables can you use value to find out when the 
 [ ] Three
 
 
+#### 4. Catwalk
+Catwalk is a tool linked. When running corectl locally on your machine you can use `corectl catwalk`{{}} to run catwalk in a browser. Since this enviroment has no browser you can display use the URL: https://catwalk.core.qlik.com/?engine_url=wss://[[HOST_SUBDOMAIN]]-19076-[[KATACODA_HOST]].environments.katacoda.com/home/engine/Qlik/Sense/Apps/testscript.qvf
+
+
+For a more detalied example look at the [Cat walk example](https://catwalk.core.qlik.com/?engine_url=wss://apps.core.qlik.com/app/doc/01775889-c700-413f-9b0e-6ba1837c52b0/)
+
 **Next step**
 
 In next step we will use an object to structure the data.
