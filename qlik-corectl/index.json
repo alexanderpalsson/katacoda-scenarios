@@ -46,7 +46,7 @@
         },
         {
           "file": "docker-compose.yml",
-          "target": "/home/scrapbook/tutorial/example",
+          "target": "/home/scrapbook/tutorial/example/coreCtl",
           "chmod": "+x"
         },
         {

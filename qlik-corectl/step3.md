@@ -24,7 +24,7 @@ script: /testscript.qvs # Path to a script that should be set in the app
 <pre class="file" data-target="clipboard">
 engine: localhost:19076 # URL and port to running Qlik Associative Engine instance
 app: /myapp.qvf   # App name that the tool should open a session against.
-script: /testscript.qvs # Path to a script that should be set in the app
+script: testscript.qvs # Path to a script that should be set in the app
 connections: # Connections that should be created in the app
   testdata: # Name of the exposed connection
       connectionstring: /data # Connectionstring (qConnectionString) of the connection. For a folder connector this is an absolute or relative path inside of the engine docker container.
@@ -86,4 +86,4 @@ We have now loaded `data/movie.cvs `{{open}} into our myapp.qvf app. There are a
 To see the tools: `corectl`{{execute}} and under `App Analysis Commands` you will find useful tools.
 <br>
 
-![Analysis](hello-engine/assets/analys.png)
+![Analysis](/katacoda-scenarios/qlik-corectl/assets/analys.png)
