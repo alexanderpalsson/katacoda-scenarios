@@ -1,4 +1,4 @@
-**Tip** Run `corectl`  in the terminal to see corectls CLI commands: 
+**Tip** Run `corectl` in the terminal window to see corectls CLI commands: 
 `corectl`{{execute}}
 
 ## 1. CoreCtl build

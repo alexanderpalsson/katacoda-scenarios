@@ -4,10 +4,15 @@
   "details": {
     "steps": [
       {
-        "title": "What is coreCtl",
+        "title": "What is coreCtl?",
         "text": "step1.md",
         "courseData": "background.sh",
         "code": "foreground.sh"
+      },
+      {
+        "title": "Before getting started",
+        "text": "before.md",
+        "verify": "step1-verify.sh"
       },
       {
         "title": "Setup corectl",
