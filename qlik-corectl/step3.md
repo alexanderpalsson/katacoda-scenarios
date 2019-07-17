@@ -23,12 +23,13 @@ script: /testscript.qvs # Path to a script that should be set in the app
 <p> 
 <pre class="file" data-target="clipboard">
 engine: localhost:19076 # URL and port to running Qlik Associative Engine instance
-app: /myapp.qvf   # App name that the tool should open a session against.
+app: /testscript.qvf   # App name that the tool should open a session against.
 script: testscript.qvs # Path to a script that should be set in the app
 connections: # Connections that should be created in the app
-  testdata: # Name of the exposed connection
+  testdata: # Name of the connection
       connectionstring: /data # Connectionstring (qConnectionString) of the connection. For a folder connector this is an absolute or relative path inside of the engine docker container.
       type: folder # Type of connection
+
 </pre>
 </p>
 </details>  
@@ -86,4 +87,22 @@ We have now loaded `data/movie.cvs `{{open}} into our myapp.qvf app. There are a
 To see the tools: `corectl`{{execute}} and under `App Analysis Commands` you will find useful tools.
 <br>
 
-![Analysis](/katacoda-scenarios/qlik-corectl/assets/analys.png)
+![Analysis](assets/analys.png)
+
+<br>
+
+`corectl fields`{{execute}} - To see what fields is in the app
+<br>
+`corectl tables`{{execute}} - To see the tables
+<br>
+
+We see that we have a field called Movie, lets see what inside. Can you use `corectl values` and specify what field we want to see.
+<br>
+`corectl values Movie`{{execute}} - To see the values in the Movie field.
+
+There are more fields in our data tables can you use value to find out when the movies where made?
+
+>>How many of the movies where made 2009?<<
+[ ] One
+[*] Two
+[ ] Three
