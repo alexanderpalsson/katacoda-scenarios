@@ -28,8 +28,9 @@ We have  now loaded the data into a hypercube. However the objects are mostly us
 You could for example re-write the app used in the [load data core example] to load the settings from corectl.
 
 <details> <summary>Show code</summary>
+`touch test.js`{{execute}}
 <p> 
-<pre class="file" data-target="clipboard">
+<pre class="file" data-filename="test.js" data-target="replace">
 /* eslint no-console:0 */
 const WebSocket = require('ws');
 const enigma = require('enigma.js');
