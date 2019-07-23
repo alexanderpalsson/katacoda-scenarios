@@ -22,7 +22,10 @@ For this tutorial we have provide an empty configuration file `corectl.yml`{{ope
 
 
 
-## 2. Exercise: Connect corectl to engine
+## 2. Setting up the cofigurationfile 
+
+**Exercise:** Connect to engine
+<br>
 
 Edit the `corectl.yml`{{open}} so that is connects to engine at localhost:19076. 
 
@@ -41,7 +44,7 @@ Edit the `corectl.yml`{{open}} so that is connects to engine at localhost:19076.
  <br>
 However you can check our current connection with `corectl status`{{execute}} 
 
- ## 3. Exercise: Create an app
+**Exercise:** Create an app
 
 Running a session with corectl without an app would be meaningless, since the app manges data handling.  <br>
 
