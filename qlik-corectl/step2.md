@@ -57,7 +57,7 @@ app: /myapp.qvf   # App name that the tool should open a session against.
 
 Run `corectl build`{{execute}} again!
 
-Now you should have an up and running against an engine!!
+Now you should have an app setup with a connection running against an engine!!
  <br>
 
 You can check your apps with: <br> <br>
