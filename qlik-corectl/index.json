@@ -10,7 +10,7 @@
         "code": "foreground.sh"
       },
       {
-        "title": "Before we get started",
+        "title": "Setup QIX-engine",
         "text": "before.md",
         "verify": "step1-verify.sh"
       },

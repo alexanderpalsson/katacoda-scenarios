@@ -6,6 +6,7 @@ In this tutorial you will learn how to: <br>
 * Load data with coreCtl
 * Use the coreClt cli to analyze the data
 * Load objects
-
+<br>
+<br>
+<br>                                                               
 ![Analysis](assets/corectl-logo.png)
-
