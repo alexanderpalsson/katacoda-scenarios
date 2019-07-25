@@ -1,0 +1,1 @@
+ws://[[HOST_SUBDOMAIN]]-19076-[[KATACODA_HOST]].environments.katacoda.com
