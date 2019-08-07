@@ -17,7 +17,7 @@ connections: # Connections that should be created in the app
       connectionstring: /data # Connectionstring (qConnectionString) of the connection. For a folder connector this is an absolute or relative path inside of the engine docker container.
       type: folder # Type of connection
 objects:
-  - ./hello-corectl.json # Path to objects that should be created from a json file. Accepts wildcards.
+  - ./corectl-object.json # Path to objects that should be created from a json file. Accepts wildcards.
 </pre>
 </p>
 </details>  
@@ -45,15 +45,15 @@ const schema = require('enigma.js/schemas/3.2.json');
       createSocket: url => new WebSocket(url),
     });
     const qix = await session.open();
-    const app = await qix.openDoc('myapp.qvf');
+    const app = await qix.openDoc('myapp');
     const object = await app.getObject('MyCoreCtlObject');
     const layout = await object.getLayout();
-    console.log(layout);
+
 
     const movies = layout.qHyperCube.qDataPages[0].qMatrix;
 
 
-    console.log(`Listing the movies:`);
+    console.log('Listing the movies:');
     movies.forEach((movie) => { console.log(movie[0].qText); });
 
     await session.close();

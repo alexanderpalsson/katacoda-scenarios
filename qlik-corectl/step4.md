@@ -9,7 +9,7 @@ In this step we will continue edit the `corectl.yml`{{open}} file but we also ne
 <br> **Some data**: `data/movie.cvs `{{open}} 
 <br>
 
-**Note** This data is loaded into a docker container, the internal docker container path is /data. If you are curios about the docker file check it out here `../docker-compose.yml`{{open}} 
+**Note** This data is loaded into a docker container, the internal docker container path is /data. If you are curios about the docker file check it out here `cat ../docker-compose.yml`{{execute}} 
 
 ## Setup a connection to the data
 
@@ -25,7 +25,7 @@ Add a script path in `corectl.yml`{{open}} pointing at  `testscript.qvs`.
 <p> 
 <pre class="file" data-target="clipboard">
 engine: localhost:19076 # URL and port to running Qlik Associative Engine instance
-app: /myapp.qvf   # App name that the tool should open a session against.
+app: /myapp   # App name that the tool should open a session against.
 script: testscript.qvs # Path to a script that should be set in the app
 </pre>
 </p>
@@ -38,7 +38,7 @@ script: testscript.qvs # Path to a script that should be set in the app
 <p> 
 <pre class="file" data-target="clipboard">
 engine: localhost:19076 # URL and port to running Qlik Associative Engine instance
-app: /myapp.qvf   # App name that the tool should open a session against.
+app: /myapp   # App name that the tool should open a session against.
 script: testscript.qvs # Path to a script that should be set in the app
 connections: # Connections that should be created in the app
   testdata: # Name of the connection
@@ -96,7 +96,7 @@ FROM [lib://testdata/movies.csv]
 (txt, utf8, embedded labels, delimiter is ',');
 `
 
-This script will load * (everything) from `movies.cvs` at the exposed connection lib://testdata/. 
+This script will load * (everything) from `movies.csv` at the exposed connection lib://testdata/. 
 <br>
 
 `lib` is a local data path specification (its `web` for webdata, etc).
@@ -111,7 +111,7 @@ Read more about [core data loading](https://github.com/qlik-oss/core-data-loadin
 
 ## Use corectl analyzing tools 
 
-We have now loaded data into `myapp.qvf`. A copy of the data can be seen in `data/movie.cvs `{{open}}. Corectl comes with a bunch of inbuilt analytics tool we can use on the loaded data.
+We have now loaded data into `myapp`. A copy of the data can be seen in `data/movie.cvs `{{open}}. Corectl comes with a bunch of inbuilt analytics tool we can use on the loaded data.
 <br>
 If you run `corectl`{{execute}} you will see some helpful analytic tool under the heading `App Analysis Commands` 
 <br>
@@ -153,7 +153,7 @@ When running corectl locally on your machine you can use `corectl catwalk`{{exec
 Since this katacoda environment has no inbuilt browser you will have to manually enter the app [websocket url](https://catwalk.core.qlik.com/?engine_url=). If you are running a engine container on your local machine the websocket will be `ws://localhost:19076` depending on what port you use.
 
 We have configure the websocket URL for this example:<br>
- https://catwalk.core.qlik.com/?engine_url=wss://[[HOST_SUBDOMAIN]]-19076-[[KATACODA_HOST]].environments.katacoda.com/home/engine/Qlik/Sense/Apps/myapp.qvf
+ https://catwalk.core.qlik.com/?engine_url=wss://[[HOST_SUBDOMAIN]]-19076-[[KATACODA_HOST]].environments.katacoda.com/home/engine/Qlik/Sense/Apps/myapp
 <br>
 
 However since we have load just a small .cvs file into our app the catwalk display much. But when the data structures getting bigger and more complex catwalk can be a really useful tool.<br>
