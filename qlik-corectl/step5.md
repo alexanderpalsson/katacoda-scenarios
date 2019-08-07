@@ -77,4 +77,6 @@ const schema = require('enigma.js/schemas/3.2.json');
 })();
 </pre>
 </p>
+
+`npm run test`{{execute}}
 </details>  
