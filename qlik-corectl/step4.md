@@ -98,7 +98,10 @@ If you run `corectl`{{execute}} you will see some helpful analytic tool under th
 `corectl tables`{{execute}} - Displays tables in the app
 <br>
 
-`corectl values <field name>` - Displays the values in the specific field
+`corectl script get`{{execute}} - Display what load script 
+<br>
+
+`corectl values <field name>` - Display the loadscript
 <br>
 
 From `corectl fields`{{execute}} we see that the app contains a field called Movie. <br>

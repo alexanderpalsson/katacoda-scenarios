@@ -1,5 +1,5 @@
 {
-      "qInfo": { "qType": "hello-corectl", "qId": "MyCoreCtlObject" },
+      "qInfo": { "qType": "hello-corectl", "qId": "MyObject" },
       "qHyperCubeDef": {
         "qDimensions": [{ "qDef": { "qFieldDefs": ["Movie", "Year"] } }],
         "qInitialDataFetch": [{ "qHeight": 5, "qWidth": 2 }]

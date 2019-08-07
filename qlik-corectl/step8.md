@@ -34,14 +34,35 @@ objects:
 </p>
 </details>  
 
-We have  now loaded the data into a hypercube. However the objects are mostly use when visualizing data. 
+We have now structured our data with an object. It should probably be mentioned that the main purpose of objects is probably when working with visualizations. But lets se how the object is used within the app.
+<br>
 
-## Extra 
-You could for example re-write the app used in the [load data core example] to load the settings from corectl.
+Run the `corectl object`{{execute}} to se which cli commands we can use.
+<br>
 
-<details> <summary>Show code</summary>
+Let's check our apps with `corectl object ls`{{execute}}
+<br>
+
+Then we can see what data we fetch by:
+`corectl object data MyObject`{{execute}}
+<br>
+This seem to be correct since our intialdata fetch in the `corectl-object.json`{{open}} was 5 movies.
+
+`corectl object properties MyObject`{{execute}} - Displays the properties of the object.
+<br>
+
+`corectl object layout MyObject`{{execute}} - Display the layout. Which is the enitre object with data. When looking at the layout of the object we see that our 5 movies is stored in qHyperCube -> qDataPages -> qMatix
+
+
+
+We can actually use this layout to print the objectives. For example by re-write the app used in the [load data core tutorial](https://github.com/qlik-oss/core-get-started/blob/master/src/hello-data/hello-data.js) to load the settings from corectl.
+
+<br>
+
 `touch test.js`{{execute}}
-<p> 
+
+<br>
+
 <pre class="file" data-filename="test.js" data-target="replace">
 /* eslint no-console:0 */
 const WebSocket = require('ws');
@@ -76,7 +97,7 @@ const schema = require('enigma.js/schemas/3.2.json');
   }
 })();
 </pre>
-</p>
+
 
 `npm run test`{{execute}}
 </details>  
