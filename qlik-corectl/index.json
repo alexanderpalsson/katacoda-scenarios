@@ -31,12 +31,16 @@
         "text": "step5.md"        
       },
       {
-        "title": "Extra step: Load data from internet source",
+        "title": "Extra step: Load data from  internet source",
         "text": "step6.md"        
       },
       {
-        "title": "Objects",
+        "title": "Extra step: Load more then one file",
         "text": "step7.md"        
+      },
+      {
+        "title": "Objects",
+        "text": "step8.md"        
       }
     ],
     "intro": {

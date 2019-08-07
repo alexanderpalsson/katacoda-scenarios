@@ -1,4 +1,4 @@
-This step is about loading data from a webpage instead of a local file. Skip to the next step if you had enough of connections and loadscripts.
+This step is about loading data from a webpage instead of a local file. Skip to the step 9 if you had enough of connections and loadscripts.
 
 
 # Load data from a html-page(webpage)
@@ -6,7 +6,7 @@ This step is about loading data from a webpage instead of a local file. Skip to 
 We need to adjust 2 things when we are chaning the data typ:
 
 1. The corectl.yml file so that the connection point att the URL where our data is.
-we will use the airport data from this [url](https://raw.githubusercontent.com/qlik-oss/core-data-loading/master/data/airports.csv).
+we will use the info about the movies  from this [url](https://gist.githubusercontent.com/carlioth/b86ede12e75b5756c9f34c0d65a22bb3/raw/e733b74c7c1c5494669b36893a31de5427b7b4fc/MovieInfo.csv).
 
 2. Change the loadscript so it loads html instead of text.(We always need to change the loadscript when loading different files)
 
@@ -18,7 +18,7 @@ app: myapp   # App name that the tool should open a session against.
 script: webload.qvs # Path to a script that should be set in the app
 connections: # Connections that should be created in the app
   webdata: # Name of the connection
-    connectionstring: "https://gist.githubusercontent.com/carlioth/b86ede12e75b5756c9f34c0d65a22bb3/raw/e733b74c7c1c5494669b36893a31de5427b7b4fc/MovieInfo.csv" # Connectionstring (qConnectionString) of the connection. For a folder connector this is an absolute or relative path inside of the engine docker container.
+    connectionstring: 'https://raw.githubusercontent.com/qlik-oss/core-data-loading/master/data/airports.csv' # Connectionstring (qConnectionString) of the connection. For a folder connector this is an absolute or relative path inside of the engine docker container.
     type: internet # Type of connection
 </pre>
 
@@ -32,10 +32,10 @@ First make an empty .qvs file with: `touch webload.qvs`{{execute}}
 
 Then add the code:
 <pre class="file" data-filename="webload.qvs" data-target="replace">
-Airports:
+MovieInfo:
 LOAD *
 FROM [lib://webdata]
-(html, utf8, delimiter is ',');
+(html, utf8, delimiter is ';');
 
 </pre>
 <br>
@@ -48,37 +48,15 @@ Analyze the data with the commands we used in step5:
 
 
 `corectl fields`{{execute}} - Displays the fields in the app
+
 <br>
 
 `corectl tables`{{execute}} - Displays tables in the app
+
 <br>
 
 `corectl values <field name>` - Displays the values in the specific field
+
 <br>
 
-# Before you continue
 
-We need to add the movies.cvs to the app again you can do this by add the connection to our corectl.yml file and add it to our new loadscript:
-
-
-
-
-<pre class="file" data-filename="corectl.yml" data-target="replace">
-engine: localhost:19076 
-app: myapp  
-script: webload.qvs 
-connections: 
-  webdata: 
-    connectionstring: "https://gist.githubusercontent.com/carlioth/b86ede12e75b5756c9f34c0d65a22bb3/raw/e733b74c7c1c5494669b36893a31de5427b7b4fc/MovieInfo.csv"docker container.
-    type: internet 
- testdata: 
-      connectionstring: /data 
-      type: folder 
-</pre>
-
-<pre class="file" data-filename="webload.qvs" data-target="append">
-Movies:
-LOAD *
-FROM [lib://testdata/movies.csv]
-(txt, utf8, embedded labels, delimiter is ',');
-</pre>
