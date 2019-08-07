@@ -50,7 +50,7 @@ Lets include the application. Edit the `corectl.yml`{{open}} and specify an app 
 
  <details> <summary>Show solution</summary>
  <p>
-<pre class="file" data-filename="corectl.yml" data-target="append">app: /myapp.qvf   # App name that the tool should open a session against.
+<pre class="file" data-filename="corectl.yml" data-target="append">app: myapp  # App name that the tool should open a session against.
 </pre>
 
 </p>
@@ -80,4 +80,4 @@ To use the same setup as in the config file we have to use the flags:
 <br>
 
 Something like this: <br>
-`corectl build -e "localhost:19076" -a "myapp.qvf"`{{execute}}
+`corectl build -e "localhost:19076" -a "myapp"`{{execute}}

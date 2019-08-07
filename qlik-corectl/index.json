@@ -15,21 +15,28 @@
         "verify": "step1-verify.sh"
       },
       {
-        "title": "Setup corectl",
+        "title": "Running corectl on your local machine",
         "text": "step2.md"
       },
       {
-        "title": "Load data",
+        "title": "Setup corectl",
         "text": "step3.md"
       },
       {
-        "title": "Catwalk",
+        "title": "Load data",
         "text": "step4.md"
+      },       
+      {
+        "title": "Catwalk",
+        "text": "step5.md"        
       },
-      
+      {
+        "title": "Extra step: Load data from internet source",
+        "text": "step6.md"        
+      },
       {
         "title": "Objects",
-        "text": "step5.md"        
+        "text": "step7.md"        
       }
     ],
     "intro": {
