@@ -7,6 +7,6 @@ In order to use QIX engine you have to accept EULA. By clicking on this command 
 ## Prepared files
 Also, there are 4 prepared files in this repository the we will use. You can check them out know or wait until they appears in the tutorial:
 * `corectl.yml`{{open}} - This is the configuration file that you will edit
-* `testscript.qvs`{{open}} - A load script that will be used in *Step 3* to load data. 
+* `testscript.qvs`{{open}} - A load script that will be used in *Step 4* to load data. 
 * `data/movies.csv `{{open}} - The data that will be loaded. (**Note** in this example the data is actually mounted into the docker container.)
-* `corectl-object.json `{{open}} - The object that will be loaded in *Step 4*.
+* `corectl-object.json `{{open}} - The object that will be loaded in *Step 5*.

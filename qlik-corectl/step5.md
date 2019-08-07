@@ -6,9 +6,21 @@ This step will handle loading objects into to you app. Objects is the core of Ql
 
 Change the `corectl.yml` so it loads the `corectl-object.json` 
 
+
+
 <details> <summary>Show solution</summary>
 <p> 
-<pre class="file" data-target="clipboard">
+<pre class="file" data-filename="corectl.yml" data-target="append">
+objects:
+  - ./corectl-object.json # Path to objects that should be created from a json file. Accepts wildcards.
+</pre>
+</p>
+</details>  
+
+
+<details> <summary> How the finished corectl.yml should look like</summary>
+<p> 
+<pre class="file" data-filename="corectl.yml" data-target="replace">
 engine: localhost:19076 # URL and port to running Qlik Associative Engine instance
 app: /testscript.qvf   # App name that the tool should open a session against.
 script: testscript.qvs # Path to a script that should be set in the app

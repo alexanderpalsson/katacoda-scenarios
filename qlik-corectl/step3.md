@@ -49,10 +49,10 @@ Running a session with corectl without an app would be meaningless, since the ap
 Lets include the application. Edit the `corectl.yml`{{open}} and specify an app you want to use.
 
  <details> <summary>Show solution</summary>
- <p> 
-<pre class="file" data-target="clipboard">engine: localhost:19076 # URL and port to running Qlik Associative Engine instance
-app: /myapp.qvf   # App name that the tool should open a session against.
+ <p>
+<pre class="file" data-filename="corectl.yml" data-target="append">app: /myapp.qvf   # App name that the tool should open a session against.
 </pre>
+
 </p>
 </details>
 
