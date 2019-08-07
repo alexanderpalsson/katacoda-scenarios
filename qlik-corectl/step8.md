@@ -51,11 +51,11 @@ This seem to be correct since our intialdata fetch in the `corectl-object.json`{
 `corectl object properties MyObject`{{execute}} - Displays the properties of the object.
 <br>
 
-`corectl object layout MyObject`{{execute}} - Display the layout. Which is the enitre object with data. When looking at the layout of the object we see that our 5 movies is stored in qHyperCube -> qDataPages -> qMatix
+`corectl object layout MyObject`{{execute}} - Display the layout. Which is the entire object with the data included (this is the object you use when want to get your data into visualization models).
 
-
-
-We can actually use this layout to print the objectives. For example by re-write the app used in the [load data core tutorial](https://github.com/qlik-oss/core-get-started/blob/master/src/hello-data/hello-data.js) to load the settings from corectl.
+<br> 
+When looking at the layout object we can see that our 5 movies is stored in qHyperCube -> qDataPages -> qMatix
+We could actually use this path from the layout to print the movies in a javascript file. For example by re-write the app used in the [load data core tutorial](https://github.com/qlik-oss/core-get-started/blob/master/src/hello-data/hello-data.js) to load the settings from corectl.
 
 <br>
 
@@ -83,7 +83,7 @@ const schema = require('enigma.js/schemas/3.2.json');
     const layout = await object.getLayout();
 
 
-    const movies = layout.qHyperCube.qDataPages[0].qMatrix;
+    const movies = layout.qHyperCube.qDataPages[0].qMatrix; //The path in the layout object 
 
 
     console.log('Listing the movies:');
