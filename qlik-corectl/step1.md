@@ -1,13 +1,12 @@
-Corectl is a command line tool to perform reloads, fetch metadata and evaluate expressions in Qlik Core apps. <br>
+First you need to start an local QIX engine that we will use in this tutorial
 
-## Running coreCtl on you local machine
-If you want to run coreCtl locally on you machine see the [coreCtl documentation](https://github.com/qlik-oss/corectl) to install corectl.
-
-You will also need a engine running in a docker container. If you are unfamiliar with docker you can read more about [docker containers](https://www.docker.com/resources/what-container) after the tutorial. <br>
-
-If you are curious about what docker-compose file we use in this example you can find it here `cat ../docker-compose.yml`{{execute}}
-
-However in this tutorial you don't have to worry about docker or installing corectl. **Everything is preinstalled** in the environment. 
+## Start the engine 
+In order to use QIX engine you have to accept EULA. By clicking on this command you accept EULA: `ACCEPT_EULA=yes docker-compose up -d`{{execute}}
 
 
-
+## Prepared files
+Also, there are 4 prepared files in this repository the we will use. You can check them out know or wait until they appears in the tutorial:
+* `corectl.yml`{{open}} - This is the configuration file that you will edit
+* `testscript.qvs`{{open}} - A load script that will be used in *Step 3* to load data. 
+* `data/movie.cvs `{{open}} - The data that will be loaded. (**Note** in this example the data is actually mounted into the docker container.)
+* `corectl-object.json `{{open}} - The object that will be loaded in *Step 4*.

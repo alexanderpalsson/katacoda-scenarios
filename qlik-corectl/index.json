@@ -11,7 +11,7 @@
       },
       {
         "title": "Setup QIX-engine",
-        "text": "before.md",
+        "text": "step1.md",
         "verify": "step1-verify.sh"
       },
       {
@@ -23,8 +23,13 @@
         "text": "step3.md"
       },
       {
+        "title": "Catwalk",
+        "text": "step4.md"
+      },
+      
+      {
         "title": "Objects",
-        "text": "step4.md"        
+        "text": "step5.md"        
       }
     ],
     "intro": {
