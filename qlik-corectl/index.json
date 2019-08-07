@@ -4,15 +4,10 @@
   "details": {
     "steps": [
       {
-        "title": "What is coreCtl?",
+        "title": "Setup QIX-engine",
         "text": "step1.md",
         "courseData": "background.sh",
         "code": "foreground.sh"
-      },
-      {
-        "title": "Setup QIX-engine",
-        "text": "step1.md",
-        "verify": "step1-verify.sh"
       },
       {
         "title": "Running corectl on your local machine",
@@ -31,11 +26,11 @@
         "text": "step5.md"        
       },
       {
-        "title": "Extra step: Load data from  internet source",
+        "title": "Extra step: Load data from a webpage",
         "text": "step6.md"        
       },
       {
-        "title": "Extra step: Load more then one file",
+        "title": "Extra step: Load multiple files",
         "text": "step7.md"        
       },
       {

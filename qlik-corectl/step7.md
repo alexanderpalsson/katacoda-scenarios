@@ -1,3 +1,6 @@
+**Note** You need to step 6 (Loading a webpage) to be able to do this step!
+<br>
+
 To load two more files we will need to do two things. First we need to setup a connection to each file and then we need to change the load script so it loads both files.
 <br>
 We use the connections from step 4 and 6. The url to the moviesinfo and the folder connection to the data folder.
