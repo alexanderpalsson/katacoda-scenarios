@@ -64,6 +64,11 @@
           "chmod": "+x"
         },
         {
+          "file": "webpack.config.js",
+          "target": "/home/scrapbook/tutorial/example",
+          "chmod": "+x"
+        },
+        {
           "file": "movies.csv",
           "target": "/home/scrapbook/tutorial/example/corectl/data",
           "chmod": "+x"

@@ -1,10 +1,80 @@
 
 `touch app.js`{{execute}}
+
+`touch index.html`{{execute}}
+
 `touch chartSetting.js`{{execute}}
-`touch webpack.config.js`{{execute}}
+
+
+<pre class="file" data-filename="corectl.yml" data-target="replace">
+engine: localhost:19076 # URL and port to running Qlik Associative Engine instance
+app: myapp   # App name that the tool should open a session against.
+script: testscript.qvs # Path to a script that should be set in the app
+connections: # Connections that should be created in the app
+  testdata:
+      connectionstring: /data # Connectionstring (qConnectionString) of the connection. For a folder connector this is an absolute or relative path inside of the engine docker container.
+      type: folder # Type of connection
+objects:
+  - ./corectl-object.json # Path to objects that should be created from a json file. Accepts wildcards.
+
+</pre>
+
 
 
 <pre class="file" data-filename="app.js" data-target="replace">
+const enigma = require('enigma.js');
+import picasso from 'picasso.js';
+import 'babel-polyfill';
+import picassoQ from 'picasso-plugin-q';
+const schema = require('enigma.js/schemas/3.2.json');
+import {
+    chartSettings
+} from './chartSetting.js';
+
+(async () => {
+    try {
+
+        picasso.use(picassoQ);
+
+        console.log('Creating session app on engine.');
+        const session = enigma.create({
+            schema,
+            url: 'ws://localhost:19076/app/myapp',
+            createSocket: url => new WebSocket(url),
+        });
+        const qix = await session.open();
+        const app = await qix.openDoc('myapp');
+        const object = await app.getObject('Barchart');
+        const layout = await object.getLayout();
+
+        await picassoPaint(chartSettings, layout)
+
+    } catch (err) {
+        console.log('Whoops! An error occurred.', err);
+        process.exit(1);
+    }
+})();
+
+
+
+function picassoPaint(settings, layout) {
+
+    picasso.use(picassoQ);
+
+    picasso.chart({
+        element: document.querySelector('#container'), // This is the element to render the chart in
+        data: [{
+            type: 'q',
+            key: 'qHyperCube',
+            data: layout.qHyperCube,
+        }],
+        settings,
+    });
+
+}
+</pre>
+
+<pre class="file" data-filename="chartSetting.js" data-target="replace">
 export const chartSettings = {
     scales: {
         labels: 'true',
@@ -74,59 +144,6 @@ export const chartSettings = {
 }
 </pre>
 
-<pre class="file" data-filename="chartSetting.js" data-target="replace">
-const enigma = require('enigma.js');
-import picasso from 'picasso.js';
-import 'babel-polyfill';
-import picassoQ from 'picasso-plugin-q';
-const schema = require('enigma.js/schemas/3.2.json');
-import {
-    chartSettings
-} from './chartSetting.js';
-
-(async () => {
-    try {
-
-        picasso.use(picassoQ);
-
-        console.log('Creating session app on engine.');
-        const session = enigma.create({
-            schema,
-            url: 'ws://localhost:19076/app/',
-            createSocket: url => new WebSocket(url),
-        });
-        const qix = await session.open();
-        const app = await qix.openDoc('myapp');
-        const object = await app.getObject('Barchart');
-        const layout = await object.getLayout();
-
-        await picassoPaint(chartSettings, layout)
-
-    } catch (err) {
-        console.log('Whoops! An error occurred.', err);
-        process.exit(1);
-    }
-})();
-
-
-
-function picassoPaint(settings, layout) {
-
-    picasso.use(picassoQ);
-
-    picasso.chart({
-        element: document.querySelector('#container'), // This is the element to render the chart in
-        data: [{
-            type: 'q',
-            key: 'qHyperCube',
-            data: layout.qHyperCube,
-        }],
-        settings,
-    });
-
-}
-</pre>
-
 
 <pre class="file" data-filename="corectl-object.js" data-target="replace">
 {
@@ -173,48 +190,5 @@ function picassoPaint(settings, layout) {
     }]
   }
 }
-</pre>
-
-
-<pre class="file" data-filename="webpack.config.js" data-target="replace">
-const path = require('path');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-
-module.exports = {
-  mode: 'development',
-  context: path.resolve(__dirname),
-  entry: { app: './app.js' },
-  output: {
-    filename: 'app.js',
-    path: path.resolve(__dirname, 'dist'),
-  },
-  devServer: { host: '0.0.0.0', port: '8080', disableHostCheck: true },
-  stats: {
-    colors: true,
-    modules: true,
-    reasons: true,
-    errorDetails: true,
-  },
-  devtool: 'source-map',
-  module: {
-    rules: [
-      {
-        test: /\.html$/,
-        loader: 'raw-loader',
-      },
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        exclude: [path.resolve(__dirname, 'node_modules')],
-        query: { presets: ['@babel/preset-env'] },
-      },
-    ],
-  },
-  plugins: [
-    new CopyWebpackPlugin([
-      { from: 'index.html' },
-    ]),
-  ],
-};
 </pre>
 
