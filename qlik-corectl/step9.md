@@ -219,7 +219,7 @@ Then we create a simple `<div>` called container in the `index.html`{{open}}:
 
 ## Put everything together
 
-We put this toghter in the `app.js`{{open}} first we connect to QIX and load the the as in previous examples. Then we us `picasso.chart()` to render our bar-chart we created in `bar-chart.js`{{open}}.
+We put this together in the `app.js`{{open}} first we connect to QIX and load the the as in previous examples. Then we us `picasso.chart()` to render our bar-chart we created in `bar-chart.js`{{open}}.
 
 
 
@@ -280,5 +280,4 @@ Use `npm run bar-chart` to create the exampled and follow the [link](https://[[H
 
 <br>
 
-**Note** We used the npm web-pack plugin to bundle the project you can view it here `cat ./../webpack.config.js`
 

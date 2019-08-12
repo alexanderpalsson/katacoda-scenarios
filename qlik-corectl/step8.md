@@ -34,7 +34,7 @@ connections: # Connections that should be created in the app
 objects:
   - ./corectl-object.json # Path to objects that should be created from a json file. Accepts wildcards.
 
-
+</pre>
 
 
 
