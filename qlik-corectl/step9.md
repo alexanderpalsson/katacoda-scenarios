@@ -145,7 +145,7 @@ export const chartSettings = {
 </pre>
 
 
-<pre class="file" data-filename="corectl-object.js" data-target="replace">
+<pre class="file" data-filename="corectl-object.json" data-target="replace">
 {
   "qInfo": {
     "qType": "measure",
@@ -192,3 +192,4 @@ export const chartSettings = {
 }
 </pre>
 
+https://catwalk.core.qlik.com/?engine_url=wss://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/home/engine/Qlik/Sense/Apps/myapp
