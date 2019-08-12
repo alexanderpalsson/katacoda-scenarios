@@ -1,10 +1,10 @@
 
-`touch test.js`{{execute}}
-`chartSetting.js`{{execute}}
-`touch webpack-config.js`{{execute}}
-`touch test.js`{{execute}}
+`touch app.js`{{execute}}
+`touch chartSetting.js`{{execute}}
+`touch webpack.config.js`{{execute}}
 
-<pre class="file" data-filename="test.js" data-target="replace">
+
+<pre class="file" data-filename="app.js" data-target="replace">
 export const chartSettings = {
     scales: {
         labels: 'true',

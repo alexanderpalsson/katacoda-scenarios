@@ -6,7 +6,8 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "hello-data": "node ./corectl/test.js"
+    "hello-data": "node ./corectl/test.js",
+    "bar-chart": "webpack-dev-server --config webpack.config.js"
   },
   "dependencies": {
     "babel-polyfill": "6.26.0",
