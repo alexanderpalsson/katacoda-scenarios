@@ -35,7 +35,7 @@ objects:
   - ./corectl-object.json # Path to objects that should be created from a json file. Accepts wildcards.
 
 </pre>
-
+</details>
 
 
 We have now structured our data with an object. It should probably be mentioned that the main purpose of objects is probably when working with visualizations. But lets se how the object is used within the app.
