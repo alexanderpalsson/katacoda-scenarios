@@ -37,8 +37,6 @@ This can be done by loading the the field Year and a measurment called Count(Yea
 <br>
 `corectl values Year`{{execute}}
 
-<br>
-
 We need to change the object so we get Year as a def and count(year) as a measurement. This is done by: 
 
 <pre class="file" data-filename="corectl-object.json" data-target="replace">
@@ -89,9 +87,7 @@ We need to change the object so we get Year as a def and count(year) as a measur
 
 </pre>
 
-<br>
-
-To update corectl use `corectl`{{build}}.
+To update corectl with `corectl build`{{execute}}.
 
 ## Setting up picasso.js
 
@@ -188,8 +184,7 @@ Then we create a simple `<div>` called container in the `index.html`{{open}}:
 
 
 <pre class="file" data-filename="index.html" data-target="replace">
-
-<!DOCTYPE html>
+`
 <html>
   <head>
     <title>My picasso.js page</title>
@@ -197,7 +192,7 @@ Then we create a simple `<div>` called container in the `index.html`{{open}}:
     <style>
     html, body {
       margin: 0;
-      padding: 0;
+      padding: 20px;
       height: 100%;
     }
     #container {
@@ -214,7 +209,7 @@ Then we create a simple `<div>` called container in the `index.html`{{open}}:
   </body>
 </html>
 </pre>
-
+`
 <br>
 
 ## Put everything together
@@ -276,7 +271,9 @@ function picassoPaint(settings, layout) {
 
 <br>
 
-Use `npm run bar-chart` to create the exampled and follow the [link](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) to view the bar chart.
+Use `npm run bar-chart`{{execute}} to create the exampled and view:
+<br>
+[the bar-chart](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) to view the bar chart.
 
 <br>
 

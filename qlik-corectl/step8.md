@@ -105,6 +105,8 @@ const schema = require('enigma.js/schemas/3.2.json');
 })();
 </pre>
 
+To run this script use:
+<br>
 
-`npm run test`{{execute}}
+`npm run print-movies`{{execute}}
 </details>  
