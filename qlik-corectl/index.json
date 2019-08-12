@@ -35,7 +35,12 @@
       {
         "title": "Objects",
         "text": "step8.md"
+      },
+      {
+        "title": "Visualize",
+        "text": "step9.md"
       }
+
     ],
     "intro": {
       "text": "intro.md",

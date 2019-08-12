@@ -21,13 +21,16 @@ Maybe you have missed a step or made a typo, here is the:
 <details> <summary>finished corectl.yml file</summary>
 <p> 
 <pre class="file" data-filename="corectl.yml" data-target="replace">
-engine: localhost:19076 # URL and port to running Qlik Associative Engine instance
-app: myapp  # App name that the tool should open a session against.
-script: testscript.qvs # Path to a script that should be set in the app
-connections: # Connections that should be created in the app
-  testdata: # Name of the connection
-      connectionstring: /data # Connectionstring (qConnectionString) of the connection. For a folder connector this is an absolute or relative path inside of the engine docker container.
-      type: folder # Type of connection
+engine: localhost:19076 
+app: myapp  
+script: webload.qvs 
+connections: 
+ webdata: 
+      connectionstring: 'https://gist.githubusercontent.com/carlioth/b86ede12e75b5756c9f34c0d65a22bb3/raw/e733b74c7c1c5494669b36893a31de5427b7b4fc/MovieInfo.csv'
+      type: internet 
+ testdata: 
+      connectionstring: /data 
+      type: folder 
 objects:
   - ./corectl-object.json # Path to objects that should be created from a json file. Accepts wildcards.
 </pre>
@@ -35,6 +38,9 @@ objects:
 </details>  
 
 We have now structured our data with an object. It should probably be mentioned that the main purpose of objects is probably when working with visualizations. But lets se how the object is used within the app.
+<br>
+Update the settings:
+`corectl build`{{execute}}
 <br>
 
 Run the `corectl object`{{execute}} to se which cli commands we can use.
@@ -74,7 +80,7 @@ const schema = require('enigma.js/schemas/3.2.json');
     console.log('Creating session app on engine.');
     const session = enigma.create({
       schema,
-      url: 'ws://localhost:19076/app/myapp',
+      url: 'ws://localhost:19076/app/',
       createSocket: url => new WebSocket(url),
     });
     const qix = await session.open();

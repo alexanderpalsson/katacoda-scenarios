@@ -6,7 +6,7 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "hello-data": "node test.js"
+    "hello-data": "node ./corectl/test.js"
   },
   "dependencies": {
     "babel-polyfill": "6.26.0",
