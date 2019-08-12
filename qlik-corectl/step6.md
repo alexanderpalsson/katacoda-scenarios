@@ -1,6 +1,3 @@
-This step is about loading data from a webpage instead of a local file. Skip to the step 9 if you had enough of connections and loadscripts.
-
-
 # Load data from a html-page(webpage)
 
 We need to adjust 2 things when we are chaning the data typ:
@@ -31,13 +28,14 @@ Now we make another load script to load from the webdata connection.
 First make an empty .qvs file with: `touch webload.qvs`{{execute}}
 
 Then add the code:
-<pre class="file" data-filename="webload.qvs" data-target="replace">
+<pre class="file" data-filename="webload.qvs" data-target="append">
 MovieInfo:
 LOAD *
 FROM [lib://webdata]
 (html, utf8, delimiter is ';');
 
 </pre>
+
 <br>
 
 We notice that the last config line is change from reading text to html!

@@ -6,7 +6,7 @@ Again [corectl config](https://github.com/qlik-oss/corectl/blob/master/docs/core
 In this step we will continue edit the `corectl.yml`{{open}} file but we also need:  
 <br>
 **A load script**:   `testscript.qvs`{{open}}
-<br> **Some data**: `data/movie.cvs `{{open}} 
+<br> **Some data**: `data/movie.csv `{{open}} 
 <br>
 
 **Note** This data is loaded into a docker container, the internal docker container path is /data. If you are curios about the docker file check it out here `cat ../docker-compose.yml`{{execute}} 
@@ -15,7 +15,7 @@ In this step we will continue edit the `corectl.yml`{{open}} file but we also ne
 
 To be able to load data into your newly created app you will have to:
 1. Define what load script you want to use. 
-2. Then you will need to expose a connection from the engine container to the load script.
+2. Then you will need to expose a connection from the QIX container to the load script.
 
 **Exercise: Add the script**
 
@@ -32,7 +32,7 @@ Add a script path in `corectl.yml`{{open}} pointing at  `testscript.qvs`.
 </details>  
 
 **Exercise: Expose the connection**  
-  Edit the `corectl.yml`{{open}} so that it opens a connection called `testdata` to the folder `/data`.
+  Edit the `corectl.yml`{{open}} so that it opens a connection called `testdata` against the folder `/data`.
 
 <details> <summary>Show solution</summary>
 <p> 
@@ -49,15 +49,11 @@ connections: # Connections that should be created in the app
 
 Run `corectl build`{{execute}} to rebuild.
 <br>
-<br>
-
-
-</p>
-</details> 
+Yaaay, we fetched som data!!
 <br>
 
 ## The load script
-First take a look at `testscript.qvs`{{open}}. If you are familiar with SQL you will see some similarities.
+Before we analyse the loaded data lets take a look at the `testscript.qvs`{{open}} we used. If you are familiar with SQL you will see some similarities.
 <br>
 
 
@@ -72,17 +68,20 @@ This script will load * (everything) from `movies.csv` at the exposed connection
 <br>
 
 `lib` is a local data path specification (its `web` for webdata, etc).
+<br>
+
+The last line in the load script is the config. This will also depend on what data source that is used.
 <br> 
 <br>
 
+
 **Load different kinds of file types**<br>
-The last line in the load script is the config. This will also depend on what data source that is used.
 Read more about [core data loading](https://github.com/qlik-oss/core-data-loading) to learn about loading different file types. 
 
 
 ## Use corectl analyzing tools 
 
-We have now loaded data into `myapp`. A copy of the data can be seen in `data/movie.cvs `{{open}}. Corectl comes with a bunch of inbuilt analytics tool we can use on the loaded data.
+We have now loaded data into `myapp`. A copy of the data can be seen in `data/movie.csv `{{open}}. Corectl comes with a bunch of inbuilt analytics tool we can use on the loaded data.
 <br>
 If you run `corectl`{{execute}} you will see some helpful analytic tool under the heading `App Analysis Commands` 
 <br>
@@ -98,13 +97,16 @@ If you run `corectl`{{execute}} you will see some helpful analytic tool under th
 `corectl tables`{{execute}} - Displays tables in the app
 <br>
 
-`corectl script get`{{execute}} - Display what load script 
+`corectl script get`{{execute}} - Display what load script used
 <br>
 
-`corectl values <field name>` - Display the loadscript
+
+From `corectl fields`{{execute}} we see that the app contains a field called Movie. 
 <br>
 
-From `corectl fields`{{execute}} we see that the app contains a field called Movie. <br>
+`corectl values <field name>` - Values in a specific field
+<br>
+
 Using `corectl values Movie`{{execute}} will display all the top values of the Movies field.
 <br>
 

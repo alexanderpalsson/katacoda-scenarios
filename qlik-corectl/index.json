@@ -1,9 +1,8 @@
 {
-  "title": "Qlik CoreCtl",
-  "description": "A tutorial learning how to setup Qlik CoreCtl",
+  "title": "Qlik Corectl",
+  "description": "A tutorial learning how to setup Qlik Corectl",
   "details": {
-    "steps": [
-      {
+    "steps": [{
         "title": "Setup QIX-engine",
         "text": "step1.md",
         "courseData": "background.sh",
@@ -20,22 +19,22 @@
       {
         "title": "Load data",
         "text": "step4.md"
-      },       
+      },
       {
         "title": "Catwalk",
-        "text": "step5.md"        
+        "text": "step5.md"
       },
       {
-        "title": "Extra step: Load data from a webpage",
-        "text": "step6.md"        
+        "title": "Load data from a webpage",
+        "text": "step6.md"
       },
       {
-        "title": "Extra step: Load multiple files",
-        "text": "step7.md"        
+        "title": "Load multiple files",
+        "text": "step7.md"
       },
       {
         "title": "Objects",
-        "text": "step8.md"        
+        "text": "step8.md"
       }
     ],
     "intro": {
@@ -49,8 +48,7 @@
       "hello-data.js"
     ],
     "assets": {
-      "host01": [
-        {
+      "host01": [{
           "file": "wait.sh",
           "target": "/usr/local/bin/",
           "chmod": "+x"
@@ -62,12 +60,12 @@
         },
         {
           "file": "movies.csv",
-          "target": "/home/scrapbook/tutorial/example/coreCtl/data",
+          "target": "/home/scrapbook/tutorial/example/corectl/data",
           "chmod": "+x"
         },
         {
           "file": "corectl-object.json",
-          "target": "/home/scrapbook/tutorial/example/coreCtl",
+          "target": "/home/scrapbook/tutorial/example/corectl",
           "chmod": "+x"
         },
         {
@@ -77,12 +75,12 @@
         },
         {
           "file": "testscript.qvs",
-          "target": "/home/scrapbook/tutorial/example/coreCtl",
+          "target": "/home/scrapbook/tutorial/example/corectl",
           "chmod": "+x"
         },
         {
           "file": "corectl.yml",
-          "target": "/home/scrapbook/tutorial/example/coreCtl",
+          "target": "/home/scrapbook/tutorial/example/corectl",
           "chmod": "+x"
         }
       ]
@@ -92,7 +90,7 @@
     "hidefinish": true,
     "uilayout": "editor-terminal",
     "uisettings": "javascript",
-    "uieditorpath": "/home/scrapbook/tutorial/example/coreCtl"
+    "uieditorpath": "/home/scrapbook/tutorial/example/corectl"
   },
   "backend": {
     "imageid": "ubuntu"

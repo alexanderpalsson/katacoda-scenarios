@@ -1,5 +1,6 @@
-**Tip:** You can always run `corectl` in the terminal window to see corectls CLI commands: 
-`corectl`{{execute}}
+
+**Tip:** You can always run `corectl`{{execute}} in the terminal window to see corectls CLI commands. 
+
 
 ## 1. CoreCtl build
 In order to use corectl tools you will have to build/load an app. The cli command that builds(or rebuild) apps is `corectl build`. <br>
@@ -8,11 +9,11 @@ In order to use corectl tools you will have to build/load an app. The cli comman
 There are two ways to use `corectl build`:
 <br>
 
-**1. Configurations file**
-<br>The simplest way and the way we use in this tutorial is to use a configuration file. <br>
+**1. A configuration file**
+<br>The simplest way and the approach that we will use in this tutorial is to use a configuration file. <br>
 When you run the command: `corectl build` CoreCtl will automatically look for file with the name ***corectl.yml*** in the current working folder. In this corectl.yml file is it possible to setup basic configuration for corectl such as: engine connection details, app and objects. <br>
 
-For this tutorial we have provide an empty configuration file `corectl.yml`{{open}}. But you can a the specification of  [**corectl configuration file**](https://github.com/qlik-oss/corectl/blob/master/docs/corectl_config.md) to see example and how to create config files. The  [**corectl configuration file**](https://github.com/qlik-oss/corectl/blob/master/docs/corectl_config.md) is probably were you will find almost all **solutions** to the exercises provided in this tutorial. 
+We have provide an empty configuration file `corectl.yml`{{open}} for you to edit. Look at the specification of  [**corectl configuration file**](https://github.com/qlik-oss/corectl/blob/master/docs/corectl_config.md) to see example and how to create config files. Here is were you will find almost all **solutions** to the exercises provided in this tutorial. 
 <br>
 
 
@@ -22,12 +23,12 @@ For this tutorial we have provide an empty configuration file `corectl.yml`{{ope
 
 
 
-## 2. Setting up the cofigurationfile 
+## 2. Create the cofigurationfile 
 
 **Exercise:** Connect to engine
 <br>
 
-Edit the `corectl.yml`{{open}} so that is connects to engine at localhost:19076. 
+Edit the `corectl.yml`{{open}} so that is connects to engine running at localhost:19076. 
 
 <details> <summary>Show solution</summary>
 <p> 
@@ -36,17 +37,17 @@ Edit the `corectl.yml`{{open}} so that is connects to engine at localhost:19076.
 </p>
 </details>  
 
- We can now build, `corectl build`{{execute}}, but corectl will return `ERROR no app specified`. This is because we are currently running a corectl session against an engine without an app. Running a session with corectl without an app would be meaningless, since the app manges data handling.  <br>
+ We can now build corectl wiht `corectl build`{{execute}}, but corectl will return `ERROR no app specified`. This is because we are currently running a corectl session against an engine without an app. Running a session with corectl without an app would be meaningless, since the app manges all data handling.  <br>
 
-However to make sure we are connected we could run `corectl status`{{execute}} 
+However to make sure we are connected  QIX we can run `corectl status`{{execute}} 
 <br>
 <br>
 
 **Exercise:** Create an app
 
-Running a session with corectl without an app would be meaningless, since the app manges data handling.  <br>
+As mentioned running a session with corectl without an app would be meaningless, since the app manges data handling.  <br>
 
-Lets include the application. Edit the `corectl.yml`{{open}} and specify an app you want to use.
+So, lets create an application. Edit the `corectl.yml`{{open}} and specify an app-name you want to use.
 
  <details> <summary>Show solution</summary>
  <p>
@@ -58,9 +59,9 @@ Lets include the application. Edit the `corectl.yml`{{open}} and specify an app 
 
 <br>
 
-Run `corectl build`{{execute}} again!
+To update the corectl after editing the corectl.yml file, you need to either reload or re-build corectl with: `corectl build`{{execute}} or `corectl reload`{{execute}}
 
-Now you should have an app setup with a connection running against an engine!!
+Now you should have an app called my-app with a connection running against an engine!!
 <br>
 
 You can check your apps with: <br>
@@ -70,7 +71,7 @@ You can check your apps with: <br>
 Or display meta of your data: <br>
 `corectl meta`{{execute}}
 
-This will be and empty app without any data so in next step we will learn how to load data to the app.
+This will display and empty app without any data so in next step we will learn how to load data to the app.
 
 ## 3. (Optional) Create an app using flags 
 
