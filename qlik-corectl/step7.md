@@ -9,17 +9,16 @@ Create a connection that connects both to the url to the movies info and the fol
 <p> 
 
 <pre class="file" data-filename="corectl.yml" data-target="replace">
-engine: localhost:19076 
-app: myapp  
-script: webload.qvs 
-connections: 
- webdata: 
+engine: localhost:19076 # URL and port to running Qlik Associative Engine instance
+app: myapp   # App name that the tool should open a session against.
+script: webload.qvs # Path to a script that should be set in the app
+connections: # Connections that should be created in the app
+  testdata:
+      connectionstring: /data # Connectionstring (qConnectionString) of the connection. For a folder connector this is an absolute or relative path inside of the engine docker container.
+      type: folder # Type of connection
+  webdata: 
       connectionstring: 'https://gist.githubusercontent.com/carlioth/b86ede12e75b5756c9f34c0d65a22bb3/raw/e733b74c7c1c5494669b36893a31de5427b7b4fc/MovieInfo.csv'
       type: internet 
- testdata: 
-      connectionstring: /data 
-      type: folder 
-</pre>
 
 </p>
 </details>
@@ -29,7 +28,7 @@ Create a load script that appends both load files together.
 <details> <summary>Show solution</summary>
 <p> 
 
-We already have the load scripts for both this files ready so we just merge both script files to one. Lets append the Movies loadscript to the webscript.qvs:
+We already have the load scripts for both this files ready so we just merge both script files to one. Lets append the Movies loadscript to the `webscript.qvs`{{open}}:
 
 <pre class="file" data-filename="webload.qvs" data-target="append">
 Movies:

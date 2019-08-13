@@ -40,8 +40,7 @@ objects:
 <br>
 
 
-We have now structured our data with an object. Lets see how the object is used within the app.
-<br>
+We have now structured our data with an object. Lets see how the object is used within the app. First run `corectl build`{{execute}}
 <br>
 
 Run the `corectl object`{{execute}} to se which cli commands we can use.
@@ -121,3 +120,6 @@ const schema = require('enigma.js/schemas/3.2.json');
 </p> 
 
 To run this script use:`npm run print-movies`{{execute}}
+<br>
+
+And the five movies should been printed!

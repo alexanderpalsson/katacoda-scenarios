@@ -7,7 +7,7 @@ We will use the info about the movies  from this [url](https://gist.githubuserco
 
 2. Change the loadscript so it loads html instead of text.(We always need to change the loadscript when loading different files)
 
-Change the corectl.yml file so it connects to the url: https://raw.githubusercontent.com/qlik-oss/core-data-loading/master/data/airports.csv
+Change the corectl.yml file so it connects to the url: https://gist.githubusercontent.com/carlioth/b86ede12e75b5756c9f34c0d65a22bb3/raw/e733b74c7c1c5494669b36893a31de5427b7b4fc/MovieInfo.csv
 
 
 <details> <summary>Show solution</summary>
@@ -50,9 +50,6 @@ The last config line is change from reading text to html!
 </p>
 </details>  
 
-
-
-<br>
 
 Now, rebuild the app with `corectl build`{{execute}}.
 

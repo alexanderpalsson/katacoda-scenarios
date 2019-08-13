@@ -17,30 +17,30 @@ If you want to see more visualizations check out [picasso.js examples](https://p
 We will need two more files working with picasso.js:
 
 
-* `touch index.html`{{execute}} - A html file containing a simple container to render our chart in. 
+* `index.html`{{open}} - A html file containing a simple container to render our chart in. 
 
 * `touch chartSetting.js`{{execute}} - The settings from [picasso.js examples](https://picassojs.com/examples.html) bar-chart example.
 <br>
 
 
 
-To create this visualization we will use `picasso.chart()` to render a bar-chart. This method have three parameters:
+To create this visualization we will use `picasso.chart()` to render a bar-chart. This method have three arguments:
 * Data 
 * Chart-settings/chart-layout
 * A html-element to render the chart in.  
 
 ## Load the data
 
-To use the bar chart we need values for the y-axis and for the t-axis. We can for example to do a bar-chart that displays the amount of movies made every year. This means we need the Years on the t-axis and the amount of movies each year on the y-axis. We already have all the needed data to accomplish this in `data/movies.csv`{{open}}.
+To use the bar chart we need values for the y-axis and for the t-axis. We can for example to do a bar-chart that displays the amount of movies made every year. This means we need the Years on the t-axis with the corresponding amount of movies each year on the y-axis. We already have all the needed data to accomplish this in `data/movies.csv`{{open}}. Therefore there is no need to change either the corectl.yml file or the loadscript.
 <br>
 
-In the object we load the field Year as qDimension and a measurement called Count(Year) into our `corectl-object.json`{{open}}.
+But we need to do some adjustments in the object. We load the field Year as qDimension and a measurement called Count(Year) into our `corectl-object.json`.
 <br>
 
-We can double check that we have a field called `Year` in our model: `corectl values Year`{{execute}}
+We can double check that we have values in the `Year` field with: `corectl values Year`{{execute}}
 <br>
 
-The object we get after these changes will look something like this:
+The object after these changes will look something like this:
 
 `corectl-object.json`{{open}}
 <br>
@@ -84,11 +84,15 @@ The object we get after these changes will look something like this:
 
 </pre>
 
-To update corectl with `corectl build`{{execute}}.
+Update the app with `corectl build`{{execute}}.
 
 ## Setting up picasso.js
 
-We create the chart settings for our bar-chart from the [picasso bar-chart example](https://observablehq.com/@miralemd/picasso-js-bar-chart). We do some smaller modifications so it fits our data. 
+
+We have prepared a simple `<div>` called container in the `index.html`{{open}} which we will render the picasso chart in.
+<br>
+
+Now we need to setup chart settings for our bar-chart. We use [picasso bar-chart example](https://observablehq.com/@miralemd/picasso-js-bar-chart) as template with some smaller modifications so it fits our data. 
 <br>
 
 `bar-chart.js`{{open}}
@@ -177,7 +181,6 @@ export const chartSettings = {
 
 <br>
 
-We have create a simple `<div>` called container in the `index.html`{{open}}:
 
 ## Put everything together
 
