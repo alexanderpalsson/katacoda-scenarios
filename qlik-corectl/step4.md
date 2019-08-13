@@ -49,7 +49,8 @@ connections: # Connections that should be created in the app
 
 Run `corectl build`{{execute}} to rebuild.
 <br>
-Yaaay, we fetched som data!!
+
+Yaaay, we loaded some data!!
 <br>
 
 ## The load script
@@ -75,7 +76,8 @@ The last line in the load script is the config. This will also depend on what da
 <br>
 
 
-**Load different kinds of file types**<br>
+##Load different kinds of file types
+
 Read more about [core data loading](https://github.com/qlik-oss/core-data-loading) to learn about loading different file types. 
 
 

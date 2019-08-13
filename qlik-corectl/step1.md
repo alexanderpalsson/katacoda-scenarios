@@ -1,4 +1,4 @@
-First you need to start an instance of Qlik's Associative Engine(QIX) in the katacoda enviroment, so you can communicate with QIX through this tutorial tutorial.
+ Before we can begin this turotial you need to have an instance of Qlik's Associative Engine(QIX) running in the Katacoda environment. Throughout this tutorial you will learn how to communicate with QIX using corectl. 
 
 ## Start the engine 
 In order to use QIX you have to accept the EULA. By clicking on this command you accept EULA: `ACCEPT_EULA=yes docker-compose up -d`{{execute}}

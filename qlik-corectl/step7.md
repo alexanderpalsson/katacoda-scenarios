@@ -1,10 +1,12 @@
-To load two more files we will need to do two things: 
-1. We need to setup a connection to each file 
+To load two or more files we need to do two things: 
+1. We need to setup a connection to each file. 
 2. We need to change the load script so it loads both files.
 <br>
 
-We use the connections from previous steps: the url to the moviesinfo and the folder connection to the /data folder.
+Create a connection that connects both to the url to the movies info and the folder connection to the /data folder.
 
+<details> <summary>Show solution</summary>
+<p> 
 
 <pre class="file" data-filename="corectl.yml" data-target="replace">
 engine: localhost:19076 
@@ -19,6 +21,14 @@ connections:
       type: folder 
 </pre>
 
+</p>
+</details>
+
+Create a load script that appends both load files together.
+
+<details> <summary>Show solution</summary>
+<p> 
+
 We already have the load scripts for both this files ready so we just merge both script files to one. Lets append the Movies loadscript to the webscript.qvs:
 
 <pre class="file" data-filename="webload.qvs" data-target="append">
@@ -27,20 +37,23 @@ LOAD *
 FROM [lib://testdata/movies.csv]
 (txt, utf8, embedded labels, delimiter is ',');
 </pre>
-
+</p>
+</details>
 
 First we need to rebuild the app `corectl build`{{execute}}.
 
 Run: `corectl tables`{{execute}}!!
 
-As you can see we now have two tables in our app!
+There is now two tables in our app!
 <br>
 
-**But wait there is more:**
+## Associations
 <br>
 
-Checkout: [catwalk](https://catwalk.core.qlik.com/?engine_url=wss://[[HOST_SUBDOMAIN]]-19076-[[KATACODA_HOST]].environments.katacoda.com/home/engine/Qlik/Sense/Apps/myapp)
-<br>.
+Checkout: [catwalk](https://catwalk.core.qlik.com/?engine_url=wss://[[HOST_SUBDOMAIN]]-19076-[[KATACODA_HOST]].environments.katacoda.com/home/engine/Qlik/Sense/Apps/myapp).
 <br>
 
 As you can see we now have relation in within our tables. Catwalk will automatically relate fields with the same name which is very powerful when adding a lot of table and when the data system are more complex.
+<br>
+
+You can see the associations between tables with: `corectl assoc`{{execute}}
