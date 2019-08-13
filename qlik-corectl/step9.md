@@ -1,11 +1,14 @@
 
-In this step we won't cover as much details since corectl doesn't provide any visualization tools.
+In this step we won't go as much into details since corectl doesn't provide any visualization tools.
+<br>
+ 
+
+But we will create an simple example how you could use corectl to load data and a object, then create a simple bar-chart with picasso.js. 
 <br>
 
-However we will provide an example how you could use corectl to load data and a object then use a simple bar-chart with picasso.js. 
-<br>
+## Picasso.js
 
-[Picasso.js](https://picassojs.com/) is a visualization javascript library to create visualization. It comes with a q-plugging which provides a lot of help when extracting data from a QIX-app
+[Picasso.js](https://picassojs.com/) is a visualization javascript library to create visualization. It comes with a q-plugging which provides a lot of help when extracting data from a QIX-app. So we don't have to use `layout.qHyperCube.qDataPages[0].qMatrix` every time we want to interact with the loaded data. 
 <br>
 
 If you want to see more visualizations check out [picasso.js examples](https://picassojs.com/examples.html).
@@ -22,22 +25,25 @@ We will need two more files working with picasso.js:
 
 
 To create this visualization we will use `picasso.chart()` to render a bar-chart. This method have three parameters:
-* The data that will be displayed in the chart
-* The chart-settings/chart-layout
+* Data 
+* Chart-settings/chart-layout
 * A html-element to render the chart in.  
-
-So lets fix some data, a chart-layour and a html-container:
 
 ## Load the data
 
-To use the bar chart we need values for the y-axis and for the t-axis. We can try for example to do a bar-chart that displays the amount of movies made every year. Which means we need the Years on the t-axit and the amount of movies each year on the y-axis. The data we need to do this can be found in `data/movies.csv`{{open}}.
+To use the bar chart we need values for the y-axis and for the t-axis. We can for example to do a bar-chart that displays the amount of movies made every year. This means we need the Years on the t-axis and the amount of movies each year on the y-axis. We already have all the needed data to accomplish this in `data/movies.csv`{{open}}.
 <br>
 
-This can be done by loading the the field Year and a measurment called Count(Year) into our `corectl-object.json`{{open}}. This means we only need to use the field `Year` and this is a field we have already loaded into our app. We can double check what by using:
+In the object we load the field Year as qDimension and a measurement called Count(Year) into our `corectl-object.json`{{open}}.
 <br>
-`corectl values Year`{{execute}}
 
-We need to change the object so we get Year as a def and count(year) as a measurement. This is done by: 
+We can double check that we have a field called `Year` in our model: `corectl values Year`{{execute}}
+<br>
+
+The object we get after these changes will look something like this:
+
+`corectl-object.json`{{open}}
+<br>
 
 <pre class="file" data-filename="corectl-object.json" data-target="replace">
 {
@@ -62,15 +68,6 @@ We need to change the object so we get Year as a def and count(year) as a measur
         "qDef": {
           "qLabel": "Count(Year)",
           "qDef": "Count(Year)",
-          "autoSort": true
-        }
-      },
-
-      {
-        "labels": true,
-        "qDef": {
-          "qLabel": "Nominal Costs",
-          "qDef": "Nominal Costs",
           "autoSort": true
         }
       }
@@ -184,7 +181,7 @@ Then we create a simple `<div>` called container in the `index.html`{{open}}:
 
 
 <pre class="file" data-filename="index.html" data-target="replace">
-`
+
 <html>
   <head>
     <title>My picasso.js page</title>

@@ -92,6 +92,11 @@
           "file": "corectl.yml",
           "target": "/home/scrapbook/tutorial/example/corectl",
           "chmod": "+x"
+        },
+        {
+          "file": "index.html",
+          "target": "/home/scrapbook/tutorial/example/corectl",
+          "chmod": "+x"
         }
       ]
     }
