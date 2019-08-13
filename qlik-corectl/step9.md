@@ -244,7 +244,7 @@ function picassoPaint(settings, layout) {
 
 <br>
 
-Use `npm run bar-chart`{{execute}} to create the exampled and view it at:
+Use `npm run bar-chart`{{execute}} (might take some time) to create the exampled and view it at:
 <br>
 
 [the bar-chart](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/)
