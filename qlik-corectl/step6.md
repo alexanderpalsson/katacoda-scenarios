@@ -32,7 +32,7 @@ Notice that the connectionstring is the data-URL and that the connection type is
 
 Now we make another load script to load from the webdata connection.
 
-**Exercise:** First make an empty .qvs file with: `touch webload.qvs`{{execute}}
+**Exercise:** First make an empty .qvs file with: `touch webload.qvs`{{execute}}. <br>
 Edit the `webload.qvs`{{open}} so it loads everything from the `webdata` connection.
 
 <details> <summary>Show solution</summary>
