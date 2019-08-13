@@ -2,10 +2,11 @@
 In this step we won't go as much into details since corectl doesn't provide any visualization tools.
 <br>
  
-
+Before you can do this step you need to install som dependencies(this can take some time):
 `./../installdep.sh`{{execute}} 
+`clear`{{execute}}
 
-But we will create an simple example how you could use corectl to load data and a object, then create a simple bar-chart with picasso.js. 
+We will go through a simple example how you could use corectl together with picasso.js to create a simple bar-chart. 
 <br>
 
 ## Picasso.js
