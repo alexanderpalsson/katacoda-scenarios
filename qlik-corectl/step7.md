@@ -48,7 +48,7 @@ There is now two tables in our app!
 <br>
 
 ## Associations
-<br>
+
 
 Checkout: [catwalk](https://catwalk.core.qlik.com/?engine_url=wss://[[HOST_SUBDOMAIN]]-19076-[[KATACODA_HOST]].environments.katacoda.com/home/engine/Qlik/Sense/Apps/myapp).
 <br>
