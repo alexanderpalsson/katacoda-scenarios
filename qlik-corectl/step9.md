@@ -3,6 +3,8 @@ In this step we won't go as much into details since corectl doesn't provide any 
 <br>
  
 
+`./../installdep.sh`{{execute}} 
+
 But we will create an simple example how you could use corectl to load data and a object, then create a simple bar-chart with picasso.js. 
 <br>
 

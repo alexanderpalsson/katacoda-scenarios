@@ -1,0 +1,1 @@
+npm i -D babel-loader babel-plugin-istanbul copy-webpack-plugin json-loader raw-loader webpack webpack-dev-server; npm i babel-polyfill picasso-plugin-q picasso.js
