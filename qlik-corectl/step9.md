@@ -177,41 +177,11 @@ export const chartSettings = {
 
 <br>
 
-Then we create a simple `<div>` called container in the `index.html`{{open}}:
-
-
-<pre class="file" data-filename="index.html" data-target="replace">
-
-<html>
-  <head>
-    <title>My picasso.js page</title>
- 
-    <style>
-    html, body {
-      margin: 0;
-      padding: 20px;
-      height: 100%;
-    }
-    #container {
-      height: 100%;
-      position: relative;
-    }
-    </style>
-  </head>
-  <body>
-    <div id="container">
-    </div>
-    <script src="app.js">
-    </script>
-  </body>
-</html>
-</pre>
-`
-<br>
+We have create a simple `<div>` called container in the `index.html`{{open}}:
 
 ## Put everything together
 
-We put this together in the `app.js`{{open}} first we connect to QIX and load the the as in previous examples. Then we us `picasso.chart()` to render our bar-chart we created in `bar-chart.js`{{open}}.
+We put this together in the `app.js`{{open}} first we connect to QIX and load the data as in previous examples. Then we us `picasso.chart()` to render our bar-chart we created.
 
 
 
@@ -268,9 +238,10 @@ function picassoPaint(settings, layout) {
 
 <br>
 
-Use `npm run bar-chart`{{execute}} to create the exampled and view:
+Use `npm run bar-chart`{{execute}} to create the exampled and view it at:
 <br>
-[the bar-chart](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) to view the bar chart.
+
+[the bar-chart](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/)
 
 <br>
 
