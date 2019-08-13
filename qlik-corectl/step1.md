@@ -10,3 +10,4 @@ Also, there are 4 prepared files in this repository that we will use. You can ch
 * `testscript.qvs`{{open}} - A load script that will be used in to load data. 
 * `data/movies.csv `{{open}} - The data that will be loaded. (**Note** in this example the data is actually mounted into the docker container.)
 * `corectl-object.json `{{open}} - The object that will be loaded.
+* `index.html`{{open}} - For the bonus last step.

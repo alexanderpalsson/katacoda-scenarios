@@ -76,8 +76,8 @@ This will display and empty app without any data so in next step we will learn h
 ## 3. (Optional) Create an app using flags 
 
 To use the same setup as in the config file we have to use the flags:
-* `-e`{{execute}} which specifies URL to QIX engine and *-a* which 
-* `-a`{{execute}} which specifies the app name of the app
+* `-e` which specifies URL to QIX engine and *-a* which 
+* `-a` which specifies the app name of the app
 <br>
 
 Something like this: <br>

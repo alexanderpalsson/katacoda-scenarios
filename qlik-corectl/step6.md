@@ -7,7 +7,7 @@ We will use the info about the movies  from this [url](https://gist.githubuserco
 
 2. Change the loadscript so it loads html instead of text.(We always need to change the loadscript when loading different files)
 
-Change the corectl.yml file so it connects to the url: https://gist.githubusercontent.com/carlioth/b86ede12e75b5756c9f34c0d65a22bb3/raw/e733b74c7c1c5494669b36893a31de5427b7b4fc/MovieInfo.csv
+**Exercise:** Change the corectl.yml file so it connects to the url: https://gist.githubusercontent.com/carlioth/b86ede12e75b5756c9f34c0d65a22bb3/raw/e733b74c7c1c5494669b36893a31de5427b7b4fc/MovieInfo.csv
 
 
 <details> <summary>Show solution</summary>
@@ -32,7 +32,7 @@ Notice that the connectionstring is the data-URL and that the connection type is
 
 Now we make another load script to load from the webdata connection.
 
-First make an empty .qvs file with: `touch webload.qvs`{{execute}}
+**Exercise:** First make an empty .qvs file with: `touch webload.qvs`{{execute}}
 Edit the `webload.qvs`{{open}} so it loads everything from the `webdata` connection.
 
 <details> <summary>Show solution</summary>

@@ -6,7 +6,7 @@ Again [corectl config](https://github.com/qlik-oss/corectl/blob/master/docs/core
 In this step we will continue edit the `corectl.yml`{{open}} file but we also need:  
 <br>
 **A load script**:   `testscript.qvs`{{open}}
-<br> **Some data**: `data/movie.csv `{{open}} 
+<br> **Some data**: `data/movies.csv `{{open}} 
 <br>
 
 **Note** This data is loaded into a docker container, the internal docker container path is /data. If you are curios about the docker file check it out here `cat ../docker-compose.yml`{{execute}} 
@@ -76,14 +76,14 @@ The last line in the load script is the config. This will also depend on what da
 <br>
 
 
-##Load different kinds of file types
+## Load different kinds of file types
 
 Read more about [core data loading](https://github.com/qlik-oss/core-data-loading) to learn about loading different file types. 
 
 
 ## Use corectl analyzing tools 
 
-We have now loaded data into `myapp`. A copy of the data can be seen in `data/movie.csv `{{open}}. Corectl comes with a bunch of inbuilt analytics tool we can use on the loaded data.
+We have now loaded data into `myapp`. A copy of the data can be seen in `data/movies.csv `{{open}}. Corectl comes with a bunch of inbuilt analytics tool we can use on the loaded data.
 <br>
 If you run `corectl`{{execute}} you will see some helpful analytic tool under the heading `App Analysis Commands` 
 <br>
