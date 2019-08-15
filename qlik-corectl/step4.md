@@ -44,6 +44,7 @@ connections: # Connections that should be created in the app
 </pre>
 </p>
 </details>  
+
 <br>
 
 Run `corectl build`{{execute}} to rebuild.
@@ -53,6 +54,10 @@ Yaaay, we loaded some data!!
 <br>
 
 ## The load script
+
+<br> 
+<br>
+
 Before we analyze the loaded data let’s look at the `testscript.qvs`{{open}} we used. If you are familiar with SQL you will see some similarities.
 <br>
 
