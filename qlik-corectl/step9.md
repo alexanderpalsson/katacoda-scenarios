@@ -2,11 +2,11 @@
 In this step we won't go as much into details since corectl doesn't provide any visualization tools.
 <br>
  
-Before you can do this step you need to install som dependencies(this can take some time):
+Before you can do this step you need to install some dependencies(this can take some time):
 `./../installdep.sh`{{execute}} 
 `clear`{{execute}}
 
-We will go through a simple example how you could use corectl together with picasso.js to create a simple bar-chart. 
+We will go through a simple example how you could use corectl together with picasso.js to create a simple bar chart. 
 <br>
 
 ## Picasso.js
@@ -16,25 +16,21 @@ We will go through a simple example how you could use corectl together with pica
 
 If you want to see more visualizations check out [picasso.js examples](https://picassojs.com/examples.html).
 
-
 We will need two more files working with picasso.js:
-
 
 * `index.html`{{open}} - A html file containing a simple container to render our chart in. 
 
-* `touch chartSetting.js`{{execute}} - The settings from [picasso.js examples](https://picassojs.com/examples.html) bar-chart example.
+* `touch chartSetting.js`{{execute}} - The settings from [picasso.js examples](https://picassojs.com/examples.html) bar chart example.
 <br>
 
-
-
-To create this visualization we will use `picasso.chart()` to render a bar-chart. This method have three arguments:
+To create this visualization we will use `picasso.chart()` to render a bar chart. This method have three arguments:
 * Data 
 * Chart-settings/chart-layout
 * A html-element to render the chart in.  
 
 ## Load the data
 
-To use the bar chart we need values for the y-axis and for the t-axis. We can for example to do a bar-chart that displays the amount of movies made every year. This means we need the Years on the t-axis with the corresponding amount of movies each year on the y-axis. We already have all the needed data to accomplish this in `data/movies.csv`{{open}}. Therefore there is no need to change either the corectl.yml file or the loadscript.
+To use the bar chart, we need values for the y-axis and for the t-axis. We can for example to do a bar chart that displays the number of movies made every year. This means we need the Years on the t-axis with the corresponding number of movies each year on the y-axis. We already have all the needed data to accomplish this in `data/movies.csv`{{open}}. Therefore, there is no need to change either the corectl.yml file or the loadscript.
 <br>
 
 But we need to do some adjustments in the object. We load the field Year as qDimension and a measurement called Count(Year) into our `corectl-object.json`.
@@ -77,7 +73,6 @@ The object after these changes will look something like this:
 
     ],
 
-
     "qInitialDataFetch": [{
       "qHeight": 50,
       "qWidth": 10
@@ -91,16 +86,15 @@ Update the app with `corectl build`{{execute}}.
 
 ## Setting up picasso.js
 
-
-We have prepared a simple `<div>` called container in the `index.html`{{open}} which we will render the picasso chart in.
+We have prepared a simple `<div>` called container in the `index.html`{{open}} which we will render the Picasso.js chart in.
 <br>
 
-Now we need to setup chart settings for our bar-chart. We use [picasso bar-chart example](https://observablehq.com/@miralemd/picasso-js-bar-chart) as template with some smaller modifications so it fits our data. 
+Now we need to setup chart settings for our bar chart. We use [picasso barchart example](https://observablehq.com/@miralemd/picasso-js-barchart) as template with some smaller modifications so it fits our data. 
 <br>
 
-`bar-chart.js`{{open}}
+`barchart.js`{{open}}
 
-<pre class="file" data-filename="bar-chart.js" data-target="replace">
+<pre class="file" data-filename="barchart.js" data-target="replace">
 export const chartSettings = {
     scales: {
         labels: 'true',
@@ -184,12 +178,9 @@ export const chartSettings = {
 
 <br>
 
-
 ## Put everything together
 
-We put this together in the `app.js`{{open}} first we connect to QIX and load the data as in previous examples. Then we us `picasso.chart()` to render our bar-chart we created.
-
-
+We put this together in the `app.js`{{open}} first we connect to QIX and load the data as in previous examples. Then we us `picasso.chart()` to render our bar chart we created.
 
 <pre class="file" data-filename="app.js" data-target="replace">
 const enigma = require('enigma.js');
@@ -199,7 +190,7 @@ import picassoQ from 'picasso-plugin-q';
 const schema = require('enigma.js/schemas/3.2.json');
 import {
     chartSettings
-} from './bar-chart.js';
+} from './barchart.js';
 
 (async () => {
     try {
@@ -223,8 +214,6 @@ import {
     }
 })();
 
-
-
 function picassoPaint(settings, layout) {
 
     picasso.use(picassoQ);
@@ -244,11 +233,13 @@ function picassoPaint(settings, layout) {
 
 <br>
 
-Use `npm run bar-chart`{{execute}} (might take some time) to create the exampled and view it at:
+Use `npm run barchart`{{execute}} (might take some time) to create the exampled and view it at:
 <br>
 
-[the bar-chart](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/)
+[the bar chart](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/)
 
 <br>
+
+
 
 

@@ -1,6 +1,6 @@
-In this step we will load data into the app.<br> 
+This step is about loading data into the app.<br> 
 
-Again [corectl config](https://github.com/qlik-oss/corectl/blob/master/docs/corectl_config.md) will be very usefull
+Again [corectl config](https://github.com/qlik-oss/corectl/blob/master/docs/corectl_config.md) will be very useful
 <br>
 
 In this step we will continue edit the `corectl.yml`{{open}} file but we also need:  
@@ -9,7 +9,7 @@ In this step we will continue edit the `corectl.yml`{{open}} file but we also ne
 <br> **Some data**: `data/movies.csv `{{open}} 
 <br>
 
-**Note** This data is loaded into a docker container, the internal docker container path is /data. If you are curios about the docker file check it out here `cat ../docker-compose.yml`{{execute}} 
+**Note** This data is loaded into a docker container, the internal docker container path is /data. If you are curious about the docker file check it out here `cat ../docker-compose.yml`{{execute}} 
 
 ## Setup a connection to the data
 
@@ -27,12 +27,11 @@ Add a script path in `corectl.yml`{{open}} pointing at  `testscript.qvs`.
 </pre>
 
 
-
 </p>
 </details>  
 
 **Exercise: Expose the connection**  
-  Edit the `corectl.yml`{{open}} so that it opens a connection called `testdata` against the folder `/data`.
+  Edit the `corectl.yml`{{open}} to open a connection called `testdata` against the folder `/data`.
 
 <details> <summary>Show solution</summary>
 <p> 
@@ -54,9 +53,8 @@ Yaaay, we loaded some data!!
 <br>
 
 ## The load script
-Before we analyse the loaded data lets take a look at the `testscript.qvs`{{open}} we used. If you are familiar with SQL you will see some similarities.
+Before we analyze the loaded data let’s look at the `testscript.qvs`{{open}} we used. If you are familiar with SQL you will see some similarities.
 <br>
-
 
 `
 Movies:  
@@ -75,11 +73,9 @@ The last line in the load script is the config. This will also depend on what da
 <br> 
 <br>
 
-
 ## Load different kinds of file types
 
 Read more about [core data loading](https://github.com/qlik-oss/core-data-loading) to learn about loading different file types. 
-
 
 ## Use corectl analyzing tools 
 
@@ -102,7 +98,6 @@ If you run `corectl`{{execute}} you will see some helpful analytic tool under th
 `corectl script get`{{execute}} - Display what load script used
 <br>
 
-
 From `corectl fields`{{execute}} we see that the app contains a field called Movie. 
 <br>
 
@@ -116,5 +111,13 @@ Using `corectl values Movie`{{execute}} will display all the top values of the M
 As you can see there are more two more fields in our data tables, can you use `corectl values` to figure out:
  >>How many of the movies that were made in 2009?<<
 [ ] One
-[*] Two
-[ ] Three
+[*] Five
+[ ] Ten
+
+<details> <summary>Show solution</summary>
+<p> 
+`corectl values Year`{{execute}} 
+</p>
+</details>  
+
+

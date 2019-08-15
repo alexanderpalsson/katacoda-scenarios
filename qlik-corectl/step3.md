@@ -1,84 +1,123 @@
+In this step we will load data into the app.<br> 
 
-**Tip:** You can always run `corectl`{{execute}} in the terminal window to see corectls CLI commands. 
-
-
-## 1. CoreCtl build
-In order to use corectl tools you will have to build/load an app. The cli command that builds(or rebuild) apps is `corectl build`. <br>
-
-
-There are two ways to use `corectl build`:
+Again [corectl config](https://github.com/qlik-oss/corectl/blob/master/docs/corectl_config.md) will be very useful
 <br>
 
-**1. A configuration file**
-<br>The simplest way and the approach that we will use in this tutorial is to use a configuration file. <br>
-When you run the command: `corectl build` CoreCtl will automatically look for file with the name ***corectl.yml*** in the current working folder. In this corectl.yml file is it possible to setup basic configuration for corectl such as: engine connection details, app and objects. <br>
-
-We have provide an empty configuration file `corectl.yml`{{open}} for you to edit. Look at the specification of  [**corectl configuration file**](https://github.com/qlik-oss/corectl/blob/master/docs/corectl_config.md) to see example and how to create config files. Here is were you will find almost all **solutions** to the exercises provided in this tutorial. 
+In this step we will continue edit the `corectl.yml`{{open}} file but we also need:  
+<br>
+**A load script**:   `testscript.qvs`{{open}}
+<br> **Some data**: `data/movies.csv `{{open}} 
 <br>
 
+**Note** This data is loaded into a docker container, the internal docker container path is /data. If you are curious about the docker file check it out here `cat ../docker-compose.yml`{{execute}} 
 
-**2. Flags**
-<br>The second way you can build corectl is with providing flags to the `corectl build` command. You can display the flag options with `corectl build -h`{{execute}}   
-<br>
+## Setup a connection to the data
 
+To be able to load data into your newly created app you will have to:
+1. Define what load script you want to use. 
+2. Then you will need to expose a connection from the QIX container to the load script.
 
+**Exercise: Add the script**
 
-## 2. Create the cofigurationfile 
-
-**Exercise:** Connect to engine
-<br>
-
-Edit the `corectl.yml`{{open}} so that is connects to engine running at localhost:19076. 
+Add a script path in `corectl.yml`{{open}} pointing at  `testscript.qvs`.
 
 <details> <summary>Show solution</summary>
 <p> 
-<pre class="file" data-filename="corectl.yml" data-target="replace">engine: localhost:19076 # URL and port to running Qlik Associative Engine instance
+<pre class="file" data-filename="corectl.yml" data-target="append">script: testscript.qvs # Path to a script that should be set in the app
 </pre>
+
+
 </p>
 </details>  
 
- We can now build corectl wiht `corectl build`{{execute}}, but corectl will return `ERROR no app specified`. This is because we are currently running a corectl session against an engine without an app. Running a session with corectl without an app would be meaningless, since the app manges all data handling.  <br>
+**Exercise: Expose the connection**  
+  Edit the `corectl.yml`{{open}} to open a connection called `testdata` against the folder `/data`.
 
-However to make sure we are connected  QIX we can run `corectl status`{{execute}} 
-<br>
-<br>
+<details> <summary>Show solution</summary>
+<p> 
+<pre class="file" data-filename="corectl.yml" data-target="append">
+connections: # Connections that should be created in the app
+  testdata: # Name of the connection
+      connectionstring: /data # Connectionstring (qConnectionString) of the connection. For a folder connector this is an absolute or relative path inside of the engine docker container.
+      type: folder # Type of connection
 
-**Exercise:** Create an app
-
-As mentioned running a session with corectl without an app would be meaningless, since the app manges data handling.  <br>
-
-So, lets create an application. Edit the `corectl.yml`{{open}} and specify an app-name you want to use.
-
- <details> <summary>Show solution</summary>
- <p>
-<pre class="file" data-filename="corectl.yml" data-target="append">app: myapp  # App name that the tool should open a session against.
 </pre>
-
 </p>
-</details>
-
+</details>  
 <br>
 
-To update the corectl after editing the corectl.yml file, you need to either reload or re-build corectl with: `corectl build`{{execute}} or `corectl reload`{{execute}}
-
-Now you should have an app called my-app with a connection running against an engine!!
+Run `corectl build`{{execute}} to rebuild.
 <br>
 
-You can check your apps with: <br>
-`corectl app ls`{{execute}}
-<br>
-<br>
-Or display meta of your data: <br>
-`corectl meta`{{execute}}
-
-This will display and empty app without any data so in next step we will learn how to load data to the app.
-
-## 3. (Optional) Create an app using flags 
-
-To use the same setup as in the config file we have to use the flags:
-* `-e` which specifies URL to QIX engine and *-a* which 
-* `-a` which specifies the app name of the app
+Yaaay, we loaded some data!!
 <br>
 
-Something like this: <br>
-`corectl build -e "localhost:19076" -a "myapp"`{{execute}}
+## The load script
+Before we analyze the loaded data let’s look at the `testscript.qvs`{{open}} we used. If you are familiar with SQL you will see some similarities.
+<br>
+
+`
+Movies:  
+LOAD *
+FROM [lib://testdata/movies.csv]
+(txt, utf8, embedded labels, delimiter is ',');
+`
+
+This script will load * (everything) from `movies.csv` at the exposed connection lib://testdata/. 
+<br>
+
+`lib` is a local data path specification (its `web` for webdata, etc).
+<br>
+
+The last line in the load script is the config. This will also depend on what data source that is used.
+<br> 
+<br>
+
+## Load different kinds of file types
+
+Read more about [core data loading](https://github.com/qlik-oss/core-data-loading) to learn about loading different file types. 
+
+## Use corectl analyzing tools 
+
+We have now loaded data into `myapp`. A copy of the data can be seen in `data/movies.csv `{{open}}. Corectl comes with a bunch of inbuilt analytics tool we can use on the loaded data.
+<br>
+If you run `corectl`{{execute}} you will see some helpful analytic tool under the heading `App Analysis Commands` 
+<br>
+
+![Analysis](assets/analys.png)
+
+**For example:**
+<br>
+
+`corectl fields`{{execute}} - Displays the fields in the app
+<br>
+
+`corectl tables`{{execute}} - Displays tables in the app
+<br>
+
+`corectl script get`{{execute}} - Display what load script used
+<br>
+
+From `corectl fields`{{execute}} we see that the app contains a field called Movie. 
+<br>
+
+`corectl values <field name>` - Values in a specific field
+<br>
+
+Using `corectl values Movie`{{execute}} will display all the top values of the Movies field.
+<br>
+
+**Exercise** <br>
+As you can see there are more two more fields in our data tables, can you use `corectl values` to figure out:
+ >>How many of the movies that were made in 2009?<<
+[ ] One
+[*] Five
+[ ] Ten
+
+<details> <summary>Show solution</summary>
+<p> 
+`corectl values Year`{{execute}} 
+</p>
+</details>  
+
+

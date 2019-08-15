@@ -7,7 +7,6 @@ This step will handle loading objects into to you app. Objects is the core of Ql
 Change the `corectl.yml` so it creates the `corectl-object.json` 
 
 
-
 <details> <summary>Show solution</summary>
 <p> 
 <pre class="file" data-filename="corectl.yml" data-target="append">
@@ -39,7 +38,6 @@ objects:
 
 <br>
 
-
 We have now structured our data with an object. Lets see how the object is used within the app. First run `corectl build`{{execute}}
 <br>
 
@@ -52,7 +50,7 @@ Let's check our apps with `corectl object ls`{{execute}}
 Then we can see what data we fetch by:
 `corectl object data MyObject`{{execute}}
 <br>
-This seem to be correct since our intialdata fetch in the `corectl-object.json`{{open}} was 5 movies.
+This seem to be correct since our initial data fetch in the `corectl-object.json`{{open}} was 5 movies.
 
 `corectl object properties MyObject`{{execute}} - Displays the properties of the object.
 <br>
@@ -67,7 +65,6 @@ When looking at the layout object we can see that our 5 movies is stored in qHyp
 We could actually use this path from the layout to print the movies in a javascript file. For example by re-write the app used in the [load data core tutorial](https://github.com/qlik-oss/core-get-started/blob/master/src/hello-data/hello-data.js) to load the settings from corectl.
 <br>
 
-
 First create a javascript file: `touch app.js`{{execute}}
 <br>
 
@@ -76,10 +73,8 @@ Then re-write the code so it opens our app and our objective instead.
 Last print the information in `layout.qHyperCube.qDataPages[0].qMatrix`.
 
 
-
 <details> <summary>Show solution</summary>
 <p> 
-
 
 <pre class="file" data-filename="app.js" data-target="replace">
 /* eslint no-console:0 */
@@ -100,9 +95,7 @@ const schema = require('enigma.js/schemas/3.2.json');
     const object = await app.getObject('MyObject');
     const layout = await object.getLayout();
 
-
     const movies = layout.qHyperCube.qDataPages[0].qMatrix; //The path in the layout object 
-
 
     console.log('Listing the movies:');
     movies.forEach((movie) => { console.log(movie[0].qText); });
@@ -122,4 +115,6 @@ const schema = require('enigma.js/schemas/3.2.json');
 To run this script use:`npm run print-movies`{{execute}}
 <br>
 
-And the five movies should been printed!
+And the five movies should be printed!
+
+
