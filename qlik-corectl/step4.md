@@ -55,9 +55,6 @@ Yaaay, we loaded some data!!
 
 ## The load script
 
-<br> 
-<br>
-
 Before we analyze the loaded data let’s look at the `testscript.qvs`{{open}} we used. If you are familiar with SQL you will see some similarities.
 <br>
 

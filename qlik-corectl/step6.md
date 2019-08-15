@@ -1,4 +1,3 @@
-# Load data from a html-page(webpage)
 
 We need to adjust two things when we are changing the data type:
 
