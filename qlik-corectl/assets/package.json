@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "print-movies": "node ./corectl/app.js",
-    "bar-chart": "webpack-dev-server --config webpack.config.js"
+    "barchart": "webpack-dev-server --config webpack.config.js"
   },
   "dependencies": {
     "enigma.js": "2.4.0",

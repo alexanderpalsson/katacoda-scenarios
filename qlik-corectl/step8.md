@@ -22,7 +22,7 @@ Maybe you have missed a step or made a typo, here is the
 <pre class="file" data-filename="corectl.yml" data-target="replace">
 engine: localhost:19076 # URL and port to running Qlik Associative Engine instance
 app: myapp   # App name that the tool should open a session against.
-script: webload.qvs # Path to a script that should be set in the app
+script: testscript.qvs # Path to a script that should be set in the app
 connections: # Connections that should be created in the app
   testdata:
       connectionstring: /data # Connectionstring (qConnectionString) of the connection. For a folder connector this is an absolute or relative path inside of the engine docker container.
