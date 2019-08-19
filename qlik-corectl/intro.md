@@ -6,6 +6,7 @@ In this tutorial you will learn how to: <br>
 * Load data with corectl
 * Use the coreClt cli to analyze the data
 * Load objects
+* Create a simple visualization
 <br>
 <br>
 <br>                                                               
