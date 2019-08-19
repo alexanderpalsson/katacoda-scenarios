@@ -20,7 +20,7 @@ We will need two more files working with picasso.js:
 
 * `index.html`{{open}} - A html file containing a simple container to render our chart in. 
 
-* `touch chartSetting.js`{{execute}} - The settings from [picasso.js examples](https://picassojs.com/examples.html) bar chart example.
+* `touch barchart.js`{{execute}} - The settings from [picasso.js examples](https://picassojs.com/examples.html) bar chart example.
 <br>
 
 To create this visualization we will use `picasso.chart()` to render a bar chart. This method have three arguments:
@@ -181,6 +181,11 @@ export const chartSettings = {
 ## Put everything together
 
 We put this together in the `app.js`{{open}} first we connect to QIX and load the data as in previous examples. Then we us `picasso.chart()` to render our bar chart we created.
+<br>
+
+Since the visualization will be rendered outside this enviroment you will have to replace the localwebsocket with a katacoda endpoint.
+<br>
+Replace the code `ws://localhost:19076/app/` with wss://[[HOST_SUBDOMAIN]]-19076-[[KATACODA_HOST]].environments.katacoda.com/app/
 
 <pre class="file" data-filename="app.js" data-target="replace">
 const enigma = require('enigma.js');
@@ -198,7 +203,7 @@ import {
         console.log('Creating session app on engine.');
         const session = enigma.create({
             schema,
-            url: 'ws://localhost:19076/app/',
+            url: 'wss://[[HOST_SUBDOMAIN]]-19076-[[KATACODA_HOST]].environments.katacoda.com/app/'
             createSocket: url => new WebSocket(url),
         });
         const qix = await session.open();

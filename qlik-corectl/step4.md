@@ -113,7 +113,7 @@ Using `corectl values Movie`{{execute}} will display all the top values of the M
 As you can see there are more two more fields in our data tables, can you use `corectl values` to figure out:
  >>How many of the movies that were made in 2009?<<
 [ ] One
-[*] Five
+[*] Four
 [ ] Ten
 
 <details> <summary>Show solution</summary>
