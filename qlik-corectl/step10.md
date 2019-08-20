@@ -204,7 +204,7 @@ import {
         console.log('Creating session app on engine.');
         const session = enigma.create({
             schema,
-            url: 'wss://[[HOST_SUBDOMAIN]]-19076-[[KATACODA_HOST]].environments.katacoda.com/app/'
+            url: 'wss://[[HOST_SUBDOMAIN]]-19076-[[KATACODA_HOST]].environments.katacoda.com/app/',
             createSocket: url => new WebSocket(url),
         });
         const qix = await session.open();
@@ -242,7 +242,7 @@ function picassoPaint(settings, layout) {
 Use `npm run barchart`{{execute}} (might take some time) to create the exampled and view it at:
 <br>
 
-[the bar chart](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/)
+[**The bar chart**](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/)
 
 <br>
 
