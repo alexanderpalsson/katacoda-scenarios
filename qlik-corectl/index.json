@@ -1,6 +1,6 @@
 {
-  "title": "Qlik Corectl",
-  "description": "A tutorial learning how to setup Qlik Corectl",
+  "title": "Qlik corectl",
+  "description": "A tutorial learning how to setup Qlik corectl",
   "details": {
     "steps": [{
         "title": "Setup QIX-engine",
@@ -13,32 +13,36 @@
         "text": "step2.md"
       },
       {
-        "title": "Setup corectl",
+        "title": "Introduction",
         "text": "step3.md"
       },
       {
-        "title": "Load data",
+        "title": "Setup corectl",
         "text": "step4.md"
       },
       {
-        "title": "Catwalk",
+        "title": "Load data",
         "text": "step5.md"
       },
       {
-        "title": "Load data from a webpage",
+        "title": "Catwalk",
         "text": "step6.md"
       },
       {
-        "title": "Load multiple files",
+        "title": "Load data from a webpage",
         "text": "step7.md"
       },
       {
-        "title": "Objects",
+        "title": "Load multiple files",
         "text": "step8.md"
       },
       {
-        "title": "Bonus step: visualization",
+        "title": "Objects",
         "text": "step9.md"
+      },
+      {
+        "title": "Bonus step: visualization",
+        "text": "step10.md"
       }
 
     ],

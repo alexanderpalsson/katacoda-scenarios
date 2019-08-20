@@ -1,250 +1,128 @@
+This step will handle loading objects into to you app. Objects is the core of Qlik data visualization and if you are unfamiliar with objects, we recommend you to read about [qlik-objects](http://help.qlik.com/en-US/sense-developer/June2019/SubSystems/Platform/Content/Sense_PlatformOverview/Concepts/GenericObject.htm).
 
-In this step we won't go as much into details since corectl doesn't provide any visualization tools.
+### Objects
+
+`corectl-object.json`{{open}} is a very stripped object that will fetch year and movie from the first five movies in the movie table.
+
+Change the `corectl.yml` so it creates the `corectl-object.json` 
+
+
+<details> <summary>Show solution</summary>
+<p> 
+<pre class="file" data-filename="corectl.yml" data-target="append">
+objects:
+  - ./corectl-object.json # Path to objects that should be created from a json file. Accepts wildcards.
+</pre>
+</p>
+</details>  
 <br>
- 
-Before you can do this step you need to install some dependencies(this can take some time):
-`./../installdep.sh`{{execute}} 
-`clear`{{execute}}
-
-We will go through a simple example how you could use corectl together with picasso.js to create a simple bar chart. 
-<br>
-
-## Picasso.js
-
-[Picasso.js](https://picassojs.com/) is a visualization javascript library to create visualization. It comes with a q-plugging which provides a lot of help when extracting data from a QIX-app. So we don't have to use `layout.qHyperCube.qDataPages[0].qMatrix` every time we want to interact with the loaded data. 
-<br>
-
-If you want to see more visualizations check out [picasso.js examples](https://picassojs.com/examples.html).
-
-We will need two more files working with picasso.js:
-
-* `index.html`{{open}} - A html file containing a simple container to render our chart in. 
-
-* `touch barchart.js`{{execute}} - The settings from [picasso.js examples](https://picassojs.com/examples.html) bar chart example.
-<br>
-
-To create this visualization we will use `picasso.chart()` to render a bar chart. This method have three arguments:
-* Data 
-* Chart-settings/chart-layout
-* A html-element to render the chart in.  
-
-## Load the data
-
-To use the bar chart, we need values for the y-axis and for the t-axis. We can for example to do a bar chart that displays the number of movies made every year. This means we need the Years on the t-axis with the corresponding number of movies each year on the y-axis. We already have all the needed data to accomplish this in `data/movies.csv`{{open}}. Therefore, there is no need to change either the corectl.yml file or the loadscript.
-<br>
-
-But we need to do some adjustments in the object. We load the field Year as qDimension and a measurement called Count(Year) into our `corectl-object.json`.
-<br>
-
-We can double check that we have values in the `Year` field with: `corectl values Year`{{execute}}
-<br>
-
-The object after these changes will look something like this:
-
-`corectl-object.json`{{open}}
-<br>
-
-<pre class="file" data-filename="corectl-object.json" data-target="replace">
-{
-  "qInfo": {
-    "qType": "measure",
-    "qId": "Barchart"
-  },
-  "qHyperCubeDef": {
-    "qDimensions": [{
-      "labels": true,
-      "qDef": {
-        "qFieldDefs": [
-          "Year"
-        ],
-        "qSortCriterias": [{
-          "qSortByAscii": 1
-        }]
-      }
-    }],
-    "qMeasures": [{
-        "labels": true,
-        "qDef": {
-          "qLabel": "Count(Year)",
-          "qDef": "Count(Year)",
-          "autoSort": true
-        }
-      }
-
-    ],
-
-    "qInitialDataFetch": [{
-      "qHeight": 50,
-      "qWidth": 10
-    }]
-  }
-}
+Maybe you have missed a step or made a typo, here is the
+<details> <summary>finished corectl.yml file</summary>
+<p> 
+<pre class="file" data-filename="corectl.yml" data-target="replace">
+engine: localhost:19076 # URL and port to running Qlik Associative Engine instance
+app: myapp   # App name that the tool should open a session against.
+script: testscript.qvs # Path to a script that should be set in the app
+connections: # Connections that should be created in the app
+  testdata:
+      connectionstring: /data # Connectionstring (qConnectionString) of the connection. For a folder connector this is an absolute or relative path inside of the engine docker container.
+      type: folder # Type of connection
+  webdata: 
+      connectionstring: 'https://gist.githubusercontent.com/carlioth/b86ede12e75b5756c9f34c0d65a22bb3/raw/e733b74c7c1c5494669b36893a31de5427b7b4fc/MovieInfo.csv'
+      type: internet 
+objects:
+  - ./corectl-object.json # Path to objects that should be created from a json file. Accepts wildcards.
 
 </pre>
-
-Update the app with `corectl build`{{execute}}.
-
-## Setting up picasso.js
-
-We have prepared a simple `<div>` called container in the `index.html`{{open}} which we will render the Picasso.js chart in.
-<br>
-
-Now we need to setup chart settings for our bar chart. We use [picasso barchart example](https://observablehq.com/@miralemd/picasso-js-barchart) as template with some smaller modifications so it fits our data. 
-<br>
-
-`barchart.js`{{open}}
-
-<pre class="file" data-filename="barchart.js" data-target="replace">
-export const chartSettings = {
-    scales: {
-        labels: 'true',
-        y: {
-            data: {
-                field: 'Count(Year)'
-            },
-            invert: true,
-            include: [0]
-        },
-        c: {
-            data: {
-                field: 'Count(Year)'
-            },
-            type: 'color'
-        },
-
-        t: {
-            data: {
-                extract: {
-                    field: 'Year'
-                }
-            },
-            padding: 0.3
-        },
-    },
-    components: [{
-            type: 'axis',
-            dock: 'left',
-            scale: 'y'
-        }, {
-            type: 'axis',
-            dock: 'bottom',
-            scale: 't'
-        }, {
-            key: 'bars',
-            type: 'box',
-            data: {
-                extract: {
-                    field: 'Year',
-                    props: {
-                        start: 0,
-                        end: {
-                            field: 'Count(Year)'
-                        }
-                    }
-                }
-            },
-            settings: {
-                major: {
-                    scale: 't'
-                },
-                minor: {
-                    scale: 'y'
-                },
-                box: {
-                    fill: {
-                        scale: 'c',
-                        ref: 'end'
-                    }
-                }
-            }
-        },
-        {
-            type: 'text',
-            text: 'Year',
-            layout: {
-                dock: 'bottom'
-            }
-        },
-        {
-            type: 'text',
-            text: 'Number of Movies',
-            layout: {
-                dock: 'left'
-            }
-        }
-    ]
-}
-</pre>
+</details>
 
 <br>
 
-## Put everything together
-
-We put this together in the `app.js`{{open}} first we connect to QIX and load the data as in previous examples. Then we us `picasso.chart()` to render our bar chart we created.
+We have now structured our data with an object. Lets see how the object is used within the app. First run `corectl build`{{execute}}
 <br>
 
-Since the visualization will be rendered outside this enviroment you will have to replace the localwebsocket with a katacoda endpoint.
+Run the `corectl object`{{execute}} to se which cli commands we can use.
 <br>
-Replace the code `ws://localhost:19076/app/` with wss://[[HOST_SUBDOMAIN]]-19076-[[KATACODA_HOST]].environments.katacoda.com/app/
+
+Let's check our apps with `corectl object ls`{{execute}}
+<br>
+
+Then we can see what data we fetch by:
+`corectl object data MyObject`{{execute}}
+<br>
+This seem to be correct since our initial data fetch in the `corectl-object.json`{{open}} was 5 movies.
+
+`corectl object properties MyObject`{{execute}} - Displays the properties of the object.
+<br>
+
+`corectl object layout MyObject`{{execute}} - Display the layout. Which is the entire object with the data included (this is the object you use when want to get your data into visualization models).
+
+<br> 
+
+## Using corectl and javascript
+
+When looking at the layout object we can see that our 5 movies is stored in qHyperCube -> qDataPages -> qMatrix
+We could actually use this path from the layout to print the movies in a javascript file. For example by re-write the app used in the [load data core tutorial](https://github.com/qlik-oss/core-get-started/blob/master/src/hello-data/hello-data.js) to load the settings from corectl.
+<br>
+
+First create a javascript file: `touch app.js`{{execute}}
+<br>
+
+**Exercise** Open `app.js`{{open}} and copy the code from the gitHub repo. 
+Then re-write the code so it opens our app and our objective instead. 
+Last print the information in `layout.qHyperCube.qDataPages[0].qMatrix`.
+
+
+<details> <summary>Show solution</summary>
+<p> 
 
 <pre class="file" data-filename="app.js" data-target="replace">
+/* eslint no-console:0 */
+const WebSocket = require('ws');
 const enigma = require('enigma.js');
-import picasso from 'picasso.js';
-import 'babel-polyfill';
-import picassoQ from 'picasso-plugin-q';
 const schema = require('enigma.js/schemas/3.2.json');
-import {
-    chartSettings
-} from './barchart.js';
 
 (async () => {
-    try {
-
-        console.log('Creating session app on engine.');
-        const session = enigma.create({
-            schema,
-            url: 'wss://[[HOST_SUBDOMAIN]]-19076-[[KATACODA_HOST]].environments.katacoda.com/app/'
-            createSocket: url => new WebSocket(url),
-        });
-        const qix = await session.open();
-        const app = await qix.openDoc('myapp');
-        const object = await app.getObject('Barchart');
-        const layout = await object.getLayout();
-
-        await picassoPaint(chartSettings, layout)
-
-    } catch (err) {
-        console.log('Whoops! An error occurred.', err);
-        process.exit(1);
-    }
-})();
-
-function picassoPaint(settings, layout) {
-
-    picasso.use(picassoQ);
-
-    picasso.chart({
-        element: document.querySelector('#container'), // This is the element to render the chart in
-        data: [{
-            type: 'q',
-            key: 'qHyperCube',
-            data: layout.qHyperCube,
-        }],
-        settings,
+  try {
+    console.log('Setting up session.');
+    const session = enigma.create({
+      schema,
+      url: 'ws://localhost:19076/app/',
+      createSocket: url => new WebSocket(url),
     });
+  
+    const qix = await session.open();
+    
+    // Add 'myapp' to the session
+    const app = await qix.openDoc('myapp');
+    
+    // Include the object in the app
+    const object = await app.getObject('MyObject');
+    
+    // Return layout of the object
+    const layout = await object.getLayout();
 
-}
+    // Fetch the data from the hypercube 
+    const movies = layout.qHyperCube.qDataPages[0].qMatrix; 
+
+    console.log('Listing the movies:');
+    movies.forEach((movie) => { console.log(movie[0].qText); });
+
+    await session.close();
+    console.log('Session closed.');
+  } catch (err) {
+    console.log('Whoops! An error occurred.', err);
+    process.exit(1);
+  }
+})();
 </pre>
 
+</details>
+</p> 
+
+To run this script use:`npm run print-movies`{{execute}}
 <br>
 
-Use `npm run barchart`{{execute}} (might take some time) to create the exampled and view it at:
-<br>
-
-[the bar chart](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/)
-
-<br>
-
-
+And the five movies should be printed!
 
 
