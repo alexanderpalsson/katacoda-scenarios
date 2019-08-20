@@ -1,5 +1,4 @@
-In this tutorial we will take a closer look at corectl. Corectl is a command line tool to perform reloads, fetch metadata and evaluate expressions in Qlik Core apps. 
-Corectl works in a way were it starts a session against Qlik Associative Engine (QIX) and then communicates with the QIX-app with CLI commands.
+In this tutorial we will take a closer look at corectl. With corectl the user starts a session against Qlik Associative Engine (QIX) and then communicates with the QIX-app through CLI commands. With the CLI commands it is possible to perform reloads, fetch metadata and evaluate expressions in the app. 
 <br>
 
 Here is flowchart to give you a feeling how corectl works:
