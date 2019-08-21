@@ -1,7 +1,7 @@
 corectl is a command line tool to perform reloads, fetch metadata and evaluate expressions in Qlik Core apps. <br>
 
 ## Running corectl on you local machine
-If you want to run corectl locally on you machine see the [corectl documentation](https://github.com/qlik-oss/corectl) to install corectl.
+If you want to run corectl locally on you machine see the [corectl documentation](https://github.com/qlik-oss/corectl#install) to install corectl.
 
 You will also need a engine running in a docker container. If you are unfamiliar with docker you can read more about [docker containers](https://www.docker.com/resources/what-container) after the tutorial. <br>
 

@@ -35,7 +35,7 @@ Edit the `corectl.yml`{{open}} so that is connects to engine running at localhos
 
  We can now build corectl with `corectl build`{{execute}}, but corectl will return `ERROR no app specified`. This is because we are currently running a corectl session against an engine without an app. Running a session with corectl without an app would be meaningless, since the app manages all data and data interactions.  <br>
 
-However to make sure we are connected QIX we can run `corectl status`{{execute}} 
+However to make sure we are connected engine we can run `corectl status`{{execute}} 
 <br>
 <br>
 
@@ -67,12 +67,12 @@ You can check your apps with: <br>
 Or display meta of your data: <br>
 `corectl meta`{{execute}}
 
-This will display and empty app without any data so in next step we will learn how to load data to the app.
+This will display an empty app without any data so in next step we will learn how to load data to the app.
 
 ## 3. (Optional) Create an app using flags 
 
 To use the same setup as in the config file we must use the flags:
- * `-e` which specifies URL to QIX engine and *-a* which  
+ * `-e` which specifies URL to engine engine and *-a* which  
  * `-a` which specifies the app name of the app 
 <br>
 
