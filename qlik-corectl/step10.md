@@ -11,7 +11,7 @@ We will go through a simple example how you could use corectl together with pica
 
 ## Picasso.js
 
-[Picasso.js](https://picassojs.com/) is a visualization javascript library to create visualization. It comes with a q-plugging which provides a lot of help when extracting data from a QIX-app. So we don't have to use `layout.qHyperCube.qDataPages[0].qMatrix` every time we want to interact with the loaded data. 
+[Picasso.js](https://picassojs.com/) is a visualization javascript library to create visualization. It comes with a q-plugging which provides a lot of help when extracting data from a engine-app. So we don't have to use `layout.qHyperCube.qDataPages[0].qMatrix` every time we want to interact with the loaded data. 
 <br>
 
 If you want to see more visualizations check out [picasso.js examples](https://picassojs.com/examples.html).
@@ -180,7 +180,7 @@ export const chartSettings = {
 
 ## Put everything together
 
-We put this together in the `app.js`{{open}} first we connect to QIX and load the data as in previous examples. Then we us `picasso.chart()` to render our bar chart we created.
+We put this together in the `app.js`{{open}} first we connect to engine and load the data as in previous examples. Then we us `picasso.chart()` to render our bar chart we created.
 <br>
 
 Since the visualization will be rendered outside this enviroment you will have to replace the localwebsocket with a katacoda endpoint.

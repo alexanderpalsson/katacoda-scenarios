@@ -15,7 +15,7 @@ In this step we will continue edit the `corectl.yml`{{open}} file but we also ne
 
 To be able to load data into your newly created app you will have to:
 1. Define what load script you want to use. 
-2. Then you will need to expose a connection from the QIX container to the load script.
+2. Then you will need to expose a connection from the engine container to the load script.
 
 **Exercise: Add the script**
 
